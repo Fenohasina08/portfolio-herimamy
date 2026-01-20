@@ -1,53 +1,72 @@
- 
-import React, { useState, useEffect } from 'react';
+ import React, { useEffect, useRef } from "react";
 
 const AnimatedStars = ({ isDark }) => {
-  const [stars, setStars] = useState([]);
+  const canvasRef = useRef(null);
 
   useEffect(() => {
-    const createStar = () => ({
-      id: Math.random(),
-      x: Math.random() * 100,
-      y: Math.random() * 100,
-      opacity: Math.random(),
-      size: Math.random() * 3 + 1,
-      duration: Math.random() * 3 + 2
-    });
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
 
-    const initialStars = Array.from({ length: 50 }, createStar);
-    setStars(initialStars);
+    let stars = [];
+    const starCount = 100;
 
-    const interval = setInterval(() => {
-      setStars(prev => {
-        const newStars = [...prev];
-        const randomIndex = Math.floor(Math.random() * newStars.length);
-        newStars[randomIndex] = createStar();
-        return newStars;
+    // Ajuster la taille du canvas
+    const resize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      stars = Array.from({ length: starCount }, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 2 + 1,
+        dx: (Math.random() - 0.5) * 0.5,
+        dy: (Math.random() - 0.5) * 0.5,
+        opacity: Math.random(),
+        dOpacity: (Math.random() - 0.5) * 0.02,
+      }));
+    };
+
+    resize();
+    window.addEventListener("resize", resize);
+
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      stars.forEach((star) => {
+        // Mise à jour de la position
+        star.x += star.dx;
+        star.y += star.dy;
+
+        // Rebonds sur les bords
+        if (star.x < 0 || star.x > canvas.width) star.dx *= -1;
+        if (star.y < 0 || star.y > canvas.height) star.dy *= -1;
+
+        // Scintillement
+        star.opacity += star.dOpacity;
+        if (star.opacity <= 0 || star.opacity >= 1) star.dOpacity *= -1;
+
+        // Couleur
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fillStyle = isDark
+          ? `rgba(255, 255, 255, ${star.opacity})`
+          : `rgba(255, 223, 0, ${star.opacity})`; // doré en mode clair
+        ctx.fill();
       });
-    }, 200);
 
-    return () => clearInterval(interval);
-  }, []);
+      requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    return () => window.removeEventListener("resize", resize);
+  }, [isDark]);
 
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-      {stars.map(star => (
-        <div
-          key={star.id}
-          className={`absolute rounded-full ${isDark ? 'bg-yellow-300' : 'bg-blue-400'} animate-pulse`}
-          style={{
-            left: `${star.x}%`,
-            top: `${star.y}%`,
-            width: `${star.size}px`,
-            height: `${star.size}px`,
-            opacity: star.opacity,
-            animationDuration: `${star.duration}s`
-          }}
-        />
-      ))}
-    </div>
+    <canvas
+      ref={canvasRef}
+      className="fixed top-0 left-0 w-full h-full -z-10"
+    />
   );
 };
 
 export default AnimatedStars;
-EOF

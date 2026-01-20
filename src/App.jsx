@@ -1,55 +1,61 @@
  import React, { useState, useEffect } from 'react';
-import AnimatedStars from './components/AnimatedStars';
+// Importation de tous tes composants
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import AnimatedStars from './components/AnimatedStars';
 import About from './components/About';
 import Skills from './components/Skills';
-import Projects from './components/Projects';
 import Experience from './components/Experience';
+import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
-const App = () => {
-  const [isDark, setIsDark] = useState(false);
+function App() {
+  // Gestion du thème (Dark Mode par défaut)
+  const [isDark, setIsDark] = useState(true);
 
+  // Fonction pour basculer le thème
   const toggleTheme = () => {
     setIsDark(!isDark);
   };
 
+  // Ajoute ou retire la classe 'dark' au body pour le CSS global si besoin
   useEffect(() => {
-    // Smooth scrolling pour les liens d'ancrage
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
-  }, []);
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDark]);
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${
-      isDark ? 'dark bg-gray-800 text-white' : 'bg-white text-gray-900'
-    }`}>
-      <AnimatedStars isDark={isDark} />
+    <div className={`min-h-screen transition-colors duration-500 ${isDark ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'}`}>
       
-      <div className="relative z-10">
-        <Navbar isDark={isDark} toggleTheme={toggleTheme} />
+      {/* Fond étoilé animé (toujours en arrière-plan) */}
+      <AnimatedStars isDark={isDark} />
+
+      {/* Barre de navigation */}
+      <Navbar isDark={isDark} toggleTheme={toggleTheme} />
+
+      {/* Contenu principal */}
+      <main>
         <Hero isDark={isDark} />
-        <About isDark={isDark} />
-        <Skills isDark={isDark} />
-        <Projects isDark={isDark} />
-        <Experience isDark={isDark} />
-        <Contact isDark={isDark} />
-        <Footer isDark={isDark} />
-      </div>
+        
+        <div className="relative">
+          {/* On empile les sections les unes après les autres */}
+          <About isDark={isDark} />
+          <Skills isDark={isDark} />
+          <Experience isDark={isDark} />
+          <Projects isDark={isDark} />
+          <Contact isDark={isDark} />
+        </div>
+      </main>
+
+      {/* Pied de page */}
+      <Footer isDark={isDark} />
+      
     </div>
   );
-};
+}
 
 export default App;
