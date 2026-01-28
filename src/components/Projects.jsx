@@ -1,5 +1,5 @@
  import React from 'react';
-import { ExternalLink, Github, Clock, CheckCircle } from 'lucide-react';
+import { ExternalLink, Clock, CheckCircle } from 'lucide-react';
 
 const Projects = ({ isDark }) => {
   const projects = [
@@ -10,7 +10,6 @@ const Projects = ({ isDark }) => {
       image: 'https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       deployed: false, // Non déployé
       demoLink: '#',
-      githubLink: '#'
     },
     {
       title: 'Test de dactylographie',
@@ -19,16 +18,14 @@ const Projects = ({ isDark }) => {
       image: 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       deployed: true, // Déployé
       demoLink: 'https://hikeyboardgame.netlify.app/',
-      githubLink: '#'
     },
     {
       title: 'Portfolio Geek\'sopap',
       description: 'Plateforme de ressources numériques pour la communauté geek avec système de partage et de curation de contenu.',
       stack: 'React • TypeScript • TailwindCSS',
       image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      deployed: false, // Non déployé
-      demoLink: '#',
-      githubLink: '#'
+      deployed: true, // Maintenant déployé
+      demoLink: 'https://sopatek-madagascar.vercel.app/',
     }
   ];
 
@@ -76,36 +73,25 @@ const Projects = ({ isDark }) => {
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <div className="flex space-x-4">
-                    {project.deployed ? (
-                      <a
-                        href={project.demoLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-purple-500 hover:bg-purple-600 text-white p-2 rounded-full transition-colors duration-300 flex items-center justify-center"
-                        title="Voir le site déployé"
-                      >
-                        <ExternalLink className="w-5 h-5" />
-                      </a>
-                    ) : (
-                      <button
-                        className="bg-gray-500 cursor-not-allowed text-white p-2 rounded-full flex items-center justify-center"
-                        title="Site en cours de déploiement"
-                        disabled
-                      >
-                        <Clock className="w-5 h-5" />
-                      </button>
-                    )}
+                  {project.deployed ? (
                     <a
-                      href={project.githubLink}
+                      href={project.demoLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-gray-800 hover:bg-gray-900 text-white p-2 rounded-full transition-colors duration-300 flex items-center justify-center"
-                      title="Voir le code source"
+                      className="bg-purple-500 hover:bg-purple-600 text-white p-3 rounded-full transition-colors duration-300 flex items-center justify-center"
+                      title="Voir le site déployé"
                     >
-                      <Github className="w-5 h-5" />
+                      <ExternalLink className="w-5 h-5" />
                     </a>
-                  </div>
+                  ) : (
+                    <button
+                      className="bg-gray-500 cursor-not-allowed text-white p-3 rounded-full flex items-center justify-center"
+                      title="Site en cours de déploiement"
+                      disabled
+                    >
+                      <Clock className="w-5 h-5" />
+                    </button>
+                  )}
                 </div>
               </div>
               
@@ -127,8 +113,8 @@ const Projects = ({ isDark }) => {
                   ))}
                 </div>
                 
-                {/* Boutons d'action */}
-                <div className="flex space-x-4 mt-4">
+                {/* Bouton unique */}
+                <div className="mt-4">
                   {project.deployed ? (
                     <a
                       href={project.demoLink}
@@ -156,20 +142,6 @@ const Projects = ({ isDark }) => {
                       En cours de déploiement
                     </button>
                   )}
-                  
-                  <a
-                    href={project.githubLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg transition-colors duration-300 ${
-                      isDark 
-                        ? 'bg-gray-700 hover:bg-gray-600 text-white' 
-                        : 'bg-gray-200 hover:bg-gray-300 text-gray-900'
-                    }`}
-                  >
-                    <Github className="w-4 h-4" />
-                    Code source
-                  </a>
                 </div>
               </div>
             </div>
