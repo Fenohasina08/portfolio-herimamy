@@ -10,7 +10,7 @@ const Experience = ({ isDark }) => {
       type: 'stage'
     },
     {
-      title: 'Licence 2 Informatique',
+      title: '2em année Informatique',
       period: '2023 - 2025',
       description: 'Formation en développement logiciel, structures de données, algorithmique et développement web.',
       type: 'formation'
@@ -19,16 +19,16 @@ const Experience = ({ isDark }) => {
 
   return (
     <section id="expérience" className="py-20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+      <div className="max-w-6xl px-4 mx-auto sm:px-6 lg:px-8">
+        <div className="mb-16 text-center">
           <h2 className={`text-4xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
             Mon Parcours
           </h2>
-          <div className="w-20 h-1 bg-purple-500 mx-auto"></div>
+          <div className="w-20 h-1 mx-auto bg-purple-500"></div>
         </div>
         
         <div className="relative">
-          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-purple-500"></div>
+          <div className="absolute w-1 h-full transform -translate-x-1/2 bg-purple-500 left-1/2"></div>
           
           <div className="space-y-12">
             {experiences.map((exp, index) => (
@@ -42,11 +42,11 @@ const Experience = ({ isDark }) => {
                   } ${index % 2 === 0 ? 'mr-8' : 'ml-8'}`}>
                     <div className="flex items-center mb-3">
                       {exp.type === 'stage' ? (
-                        <Briefcase className="w-6 h-6 text-purple-500 mr-3" />
+                        <Briefcase className="w-6 h-6 mr-3 text-purple-500" />
                       ) : (
-                        <GraduationCap className="w-6 h-6 text-purple-500 mr-3" />
+                        <GraduationCap className="w-6 h-6 mr-3 text-purple-500" />
                       )}
-                      <span className="text-purple-500 font-medium">{exp.period}</span>
+                      <span className="font-medium text-purple-500">{exp.period}</span>
                     </div>
                     <h3 className={`text-xl font-semibold mb-3 ${
                       isDark ? 'text-white' : 'text-gray-900'
@@ -59,7 +59,7 @@ const Experience = ({ isDark }) => {
                   </div>
                 </div>
                 
-                <div className="w-4 h-4 bg-purple-500 rounded-full border-4 border-white z-10 relative"></div>
+                <div className="relative z-10 w-4 h-4 bg-purple-500 border-4 border-white rounded-full"></div>
                 <div className="flex-1"></div>
               </div>
             ))}

@@ -1,23 +1,25 @@
-import React from 'react';
+ import React from 'react';
 
 const About = ({ isDark }) => {
   return (
     <section id="propos" className={`py-20 ${isDark ? 'bg-gray-900' : 'bg-gray-50'}`}>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+      <div className="max-w-6xl px-4 mx-auto sm:px-6 lg:px-8">
+        <div className="mb-16 text-center">
           <h2 className={`text-4xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
             À propos de moi
           </h2>
-          <div className="w-20 h-1 bg-purple-500 mx-auto"></div>
+          <div className="w-20 h-1 mx-auto bg-purple-500"></div>
         </div>
         
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid items-center gap-12 md:grid-cols-2">
           <div className="flex justify-center">
-            <div className={`w-80 h-80 rounded-full ${isDark ? 'bg-gray-800' : 'bg-white'} shadow-2xl flex items-center justify-center`}>
-              <div className={`w-72 h-72 rounded-full ${isDark ? 'bg-gray-700' : 'bg-gray-100'} flex items-center justify-center`}>
-                <span className={`text-6xl font-bold ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-                  HF
-                </span>
+            <div className={`w-80 h-80 rounded-full ${isDark ? 'bg-gray-800' : 'bg-white'} shadow-2xl flex items-center justify-center overflow-hidden`}>
+              <div className={`w-72 h-72 rounded-full ${isDark ? 'bg-gray-700' : 'bg-gray-100'} overflow-hidden`}>
+                <img 
+                  src="/feno.png" // Chemin relatif depuis le dossier public
+                  alt="Photo de profil" 
+                  className="object-cover w-full h-full"
+                />
               </div>
             </div>
           </div>
@@ -33,7 +35,7 @@ const About = ({ isDark }) => {
               Mes qualités
             </h3>
             
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
               {['Curiosité', 'Autonomie', 'Travail d\'équipe'].map((skill, index) => (
                 <div
                   key={skill}

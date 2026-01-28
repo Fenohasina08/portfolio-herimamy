@@ -24,9 +24,9 @@ const Contact = ({ isDark }) => {
   };
 
   const socialLinks = [
-    { icon: Github, label: 'GitHub', href: '#' },
-    { icon: Linkedin, label: 'LinkedIn', href: '#' },
-    { icon: Facebook, label: 'Facebook Geek\'sopap', href: '#' }
+    { icon: Github, label: 'GitHub', href: 'https://github.com/Fenohasina08' },
+    { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/herimamy-fenohasina-ra-fanomezana-40370a386/' },
+    { icon: Facebook, label: 'Facebook', href: 'https://www.facebook.com/feno.hasi.na.55017' }
   ];
 
   return (
@@ -119,7 +119,7 @@ const Contact = ({ isDark }) => {
               <div className="flex items-center">
                 <Phone className="w-6 h-6 mr-4 text-purple-500" />
                 <span className={isDark ? 'text-gray-300' : 'text-gray-600'}>
-                  +261 XX XXX XX XX
+                  +261 32 87 023 38
                 </span>
               </div>
               
