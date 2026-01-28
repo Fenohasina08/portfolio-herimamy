@@ -3,8 +3,8 @@ import { ChevronDown } from 'lucide-react';
 
 const Hero = ({ isDark }) => {
   return (
-    <section id="accueil" className="min-h-screen flex items-center justify-center relative">
-      <div className="text-center z-10 px-4">
+    <section id="accueil" className="relative flex items-center justify-center min-h-screen">
+      <div className="z-10 px-4 text-center">
         <div className="animate-fadeIn">
           <h1 className={`text-5xl md:text-7xl font-bold mb-6 ${
             isDark ? 'text-white' : 'text-gray-900'
@@ -17,7 +17,7 @@ const Hero = ({ isDark }) => {
           <h2 className={`text-xl md:text-2xl mb-8 ${
             isDark ? 'text-gray-300' : 'text-gray-600'
           }`}>
-            Étudiant en Informatique – Développeur Web Junior
+             Développeur Web  
           </h2>
           
           <p className={`text-lg mb-12 max-w-2xl mx-auto ${
@@ -26,10 +26,10 @@ const Hero = ({ isDark }) => {
             "Passionné par le développement web et la création de solutions modernes."
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <a
               href="#projets"
-              className="bg-purple-500 hover:bg-purple-600 text-white px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg"
+              className="px-8 py-3 text-white transition-all duration-300 transform bg-purple-500 rounded-full shadow-lg hover:bg-purple-600 hover:scale-105"
             >
               Voir mes projets
             </a>
@@ -44,7 +44,7 @@ const Hero = ({ isDark }) => {
           </div>
         </div>
         
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="absolute transform -translate-x-1/2 bottom-8 left-1/2 animate-bounce">
           <ChevronDown className={`w-8 h-8 ${isDark ? 'text-gray-400' : 'text-gray-600'}`} />
         </div>
       </div>
