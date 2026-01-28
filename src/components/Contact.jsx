@@ -24,9 +24,9 @@ const Contact = ({ isDark }) => {
   };
 
   const socialLinks = [
-    { icon: Github, label: 'GitHub', href: '#' },
-    { icon: Linkedin, label: 'LinkedIn', href: '#' },
-    { icon: Facebook, label: 'Facebook Geek\'sopap', href: '#' }
+    { icon: Github, label: 'GitHub', href: 'https://github.com/Fenohasina08' },
+    { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/herimamy-fenohasina-ra-fanomezana-40370a386/' },
+    { icon: Facebook, label: 'Facebook', href: 'https://www.facebook.com/feno.hasi.na.55017' }
   ];
 
   return (
