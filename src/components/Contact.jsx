@@ -31,15 +31,15 @@ const Contact = ({ isDark }) => {
 
   return (
     <section id="contact" className={`py-20 ${isDark ? 'bg-gray-900' : 'bg-gray-50'}`}>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+      <div className="max-w-6xl px-4 mx-auto sm:px-6 lg:px-8">
+        <div className="mb-16 text-center">
           <h2 className={`text-4xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
             Contactez-moi
           </h2>
-          <div className="w-20 h-1 bg-purple-500 mx-auto"></div>
+          <div className="w-20 h-1 mx-auto bg-purple-500"></div>
         </div>
         
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid gap-12 md:grid-cols-2">
           <div>
             <h3 className={`text-2xl font-semibold mb-6 ${isDark ? 'text-white' : 'text-gray-900'}`}>
               Envoyez-moi un message
@@ -96,7 +96,7 @@ const Contact = ({ isDark }) => {
               
               <button
                 onClick={handleSubmit}
-                className="w-full bg-purple-500 hover:bg-purple-600 text-white py-3 rounded-lg transition-colors duration-300 transform hover:scale-105"
+                className="w-full py-3 text-white transition-colors duration-300 transform bg-purple-500 rounded-lg hover:bg-purple-600 hover:scale-105"
               >
                 Envoyer le message
               </button>
@@ -108,23 +108,23 @@ const Contact = ({ isDark }) => {
               Mes coordonnées
             </h3>
             
-            <div className="space-y-4 mb-8">
+            <div className="mb-8 space-y-4">
               <div className="flex items-center">
-                <Mail className="w-6 h-6 text-purple-500 mr-4" />
+                <Mail className="w-6 h-6 mr-4 text-purple-500" />
                 <span className={isDark ? 'text-gray-300' : 'text-gray-600'}>
-                  herimamy.fanomezana@email.com
-                </span>
+                    fenohasinaherimamy@gmail.com
+                  </span>
               </div>
               
               <div className="flex items-center">
-                <Phone className="w-6 h-6 text-purple-500 mr-4" />
+                <Phone className="w-6 h-6 mr-4 text-purple-500" />
                 <span className={isDark ? 'text-gray-300' : 'text-gray-600'}>
                   +261 XX XXX XX XX
                 </span>
               </div>
               
               <div className="flex items-center">
-                <MapPin className="w-6 h-6 text-purple-500 mr-4" />
+                <MapPin className="w-6 h-6 mr-4 text-purple-500" />
                 <span className={isDark ? 'text-gray-300' : 'text-gray-600'}>
                   Antananarivo, Madagascar
                 </span>
