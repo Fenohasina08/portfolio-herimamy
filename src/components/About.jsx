@@ -16,8 +16,8 @@ const About = ({ isDark }) => {
             <div className={`w-80 h-80 rounded-full ${isDark ? 'bg-gray-800' : 'bg-white'} shadow-2xl flex items-center justify-center overflow-hidden`}>
               <div className={`w-72 h-72 rounded-full ${isDark ? 'bg-gray-700' : 'bg-gray-100'} overflow-hidden`}>
                 <img 
-                  src="/feno.png" // Chemin relatif depuis le dossier public
-                  alt="Photo de profil" 
+                  src="/feno.png"
+                  alt="Fenohasina"
                   className="object-cover w-full h-full"
                 />
               </div>
