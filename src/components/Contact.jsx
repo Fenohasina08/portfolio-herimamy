@@ -1,5 +1,5 @@
  import React from 'react';
-import { Github, Linkedin, Facebook, Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Github, Linkedin, Facebook, Mail, Phone, MapPin } from 'lucide-react';
 
 const Contact = ({ isDark }) => {
   const socialLinks = [
@@ -37,9 +37,9 @@ const Contact = ({ isDark }) => {
               <div className="flex justify-center">
                 <button
                   onClick={handleEmailClick}
-                  className="px-12 py-4 text-white bg-purple-500 rounded-full hover:bg-purple-600 hover:scale-105 transition-all duration-300 transform flex items-center justify-center gap-3 group text-lg font-medium shadow-lg hover:shadow-xl"
+                  className="flex items-center justify-center gap-3 px-12 py-4 text-lg font-medium text-white transition-all duration-300 transform bg-purple-500 rounded-full shadow-lg hover:bg-purple-600 hover:scale-105 group hover:shadow-xl"
                 >
-                  <Mail className="w-6 h-6 group-hover:scale-110 transition-transform" />
+                  <Mail className="w-6 h-6 transition-transform group-hover:scale-110" />
                   Écrire un email
                 </button>
               </div>
@@ -58,7 +58,7 @@ const Contact = ({ isDark }) => {
             
             <div className="mb-8 space-y-4">
               <div className="flex items-center group">
-                <div className="w-6 h-6 mr-4 text-purple-500 flex items-center justify-center">
+                <div className="flex items-center justify-center w-6 h-6 mr-4 text-purple-500">
                   <Mail className="w-5 h-5" />
                 </div>
                 <span className={`${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
@@ -67,7 +67,7 @@ const Contact = ({ isDark }) => {
               </div>
               
               <div className="flex items-center group">
-                <div className="w-6 h-6 mr-4 text-purple-500 flex items-center justify-center">
+                <div className="flex items-center justify-center w-6 h-6 mr-4 text-purple-500">
                   <Phone className="w-5 h-5" />
                 </div>
                 <span className={`${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
@@ -76,7 +76,7 @@ const Contact = ({ isDark }) => {
               </div>
               
               <div className="flex items-center group">
-                <div className="w-6 h-6 mr-4 text-purple-500 flex items-center justify-center">
+                <div className="flex items-center justify-center w-6 h-6 mr-4 text-purple-500">
                   <MapPin className="w-5 h-5" />
                 </div>
                 <span className={`${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
