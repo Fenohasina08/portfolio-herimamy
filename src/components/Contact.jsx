@@ -1,15 +1,22 @@
  import React from 'react';
 import { Github, Linkedin, Facebook, Mail, Phone, MapPin } from 'lucide-react';
+import { portfolioData } from '../data/portfolioData';
+
+// Mapping des icônes Lucide React
+const iconComponents = {
+  Github: Github,
+  Linkedin: Linkedin,
+  Facebook: Facebook,
+  Mail: Mail,
+  Phone: Phone,
+  MapPin: MapPin
+};
 
 const Contact = ({ isDark }) => {
-  const socialLinks = [
-    { icon: Github, label: 'GitHub', href: 'https://github.com/Fenohasina08' },
-    { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/herimamy-fenohasina-ra-fanomezana-40370a386/' },
-    { icon: Facebook, label: 'Facebook', href: 'https://www.facebook.com/feno.hasi.na.55017' }
-  ];
+  const socialLinks = portfolioData.contact.socialLinks;
 
   const handleEmailClick = () => {
-    window.location.href = 'mailto:fenohasinaherimamy@gmail.com';
+    window.location.href = `mailto:${portfolioData.personal.email}`;
   };
 
   return (
@@ -17,7 +24,7 @@ const Contact = ({ isDark }) => {
       <div className="max-w-6xl px-4 mx-auto sm:px-6 lg:px-8">
         <div className="mb-16 text-center">
           <h2 className={`text-4xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
-            Contactez-moi
+            {portfolioData.contact.title}
           </h2>
           <div className="w-20 h-1 mx-auto bg-purple-500"></div>
         </div>
@@ -30,8 +37,7 @@ const Contact = ({ isDark }) => {
               </h3>
               
               <p className={`text-lg mb-8 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-                Cliquez sur le bouton ci-dessous pour m'envoyer un email directement.
-                Votre client de messagerie s'ouvrira avec mon adresse pré-remplie.
+                {portfolioData.contact.emailText}
               </p>
               
               <div className="flex justify-center">
@@ -45,7 +51,7 @@ const Contact = ({ isDark }) => {
               </div>
               
               <div className={`mt-6 text-sm ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
-                <p>📧 Adresse : fenohasinaherimamy@gmail.com</p>
+                <p>📧 Adresse : {portfolioData.personal.email}</p>
                 <p className="mt-2 text-xs">Votre client email (Gmail, Outlook, etc.) s'ouvrira automatiquement.</p>
               </div>
             </div>
@@ -62,7 +68,7 @@ const Contact = ({ isDark }) => {
                   <Mail className="w-5 h-5" />
                 </div>
                 <span className={`${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-                  fenohasinaherimamy@gmail.com
+                  {portfolioData.personal.email}
                 </span>
               </div>
               
@@ -71,7 +77,7 @@ const Contact = ({ isDark }) => {
                   <Phone className="w-5 h-5" />
                 </div>
                 <span className={`${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-                  +261 32 87 023 38
+                  {portfolioData.personal.phone}
                 </span>
               </div>
               
@@ -80,7 +86,7 @@ const Contact = ({ isDark }) => {
                   <MapPin className="w-5 h-5" />
                 </div>
                 <span className={`${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-                  Antananarivo, Madagascar
+                  {portfolioData.personal.location}
                 </span>
               </div>
             </div>
@@ -90,22 +96,25 @@ const Contact = ({ isDark }) => {
             </h4>
             
             <div className="flex space-x-4">
-              {socialLinks.map(({ icon: Icon, label, href }, index) => (
-                <a
-                  key={label}
-                  href={href}
-                  className={`p-3 rounded-full transition-all duration-300 transform hover:scale-110 ${
-                    isDark 
-                      ? 'bg-gray-800 hover:bg-purple-600 text-gray-300 hover:text-white' 
-                      : 'bg-white hover:bg-purple-500 text-gray-600 hover:text-white'
-                  } shadow-lg hover:shadow-xl`}
-                  title={label}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Icon className="w-6 h-6" />
-                </a>
-              ))}
+              {socialLinks.map(({ platform, url, icon }) => {
+                const IconComponent = iconComponents[icon];
+                return (
+                  <a
+                    key={platform}
+                    href={url}
+                    className={`p-3 rounded-full transition-all duration-300 transform hover:scale-110 ${
+                      isDark 
+                        ? 'bg-gray-800 hover:bg-purple-600 text-gray-300 hover:text-white' 
+                        : 'bg-white hover:bg-purple-500 text-gray-600 hover:text-white'
+                    } shadow-lg hover:shadow-xl`}
+                    title={platform}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <IconComponent className="w-6 h-6" />
+                  </a>
+                );
+              })}
             </div>
 
             {/* Instructions */}
