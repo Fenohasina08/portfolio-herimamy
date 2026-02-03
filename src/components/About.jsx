@@ -1,4 +1,5 @@
  import React from 'react';
+import { portfolioData } from '../data/portfolioData';
 
 const About = ({ isDark }) => {
   return (
@@ -6,7 +7,7 @@ const About = ({ isDark }) => {
       <div className="max-w-6xl px-4 mx-auto sm:px-6 lg:px-8">
         <div className="mb-16 text-center">
           <h2 className={`text-4xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
-            À propos de moi
+            {portfolioData.about.title}
           </h2>
           <div className="w-20 h-1 mx-auto bg-purple-500"></div>
         </div>
@@ -16,8 +17,8 @@ const About = ({ isDark }) => {
             <div className={`w-80 h-80 rounded-full ${isDark ? 'bg-gray-800' : 'bg-white'} shadow-2xl flex items-center justify-center overflow-hidden`}>
               <div className={`w-72 h-72 rounded-full ${isDark ? 'bg-gray-700' : 'bg-gray-100'} overflow-hidden`}>
                 <img 
-                  src="/feno.png"
-                  alt="Fenohasina"
+                  src={portfolioData.about.image}
+                  alt={portfolioData.personal.name}
                   className="object-cover w-full h-full"
                 />
               </div>
@@ -26,9 +27,7 @@ const About = ({ isDark }) => {
           
           <div>
             <p className={`text-lg mb-6 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-              Actuellement étudiant en L2 Informatique, je suis passionné par le développement web 
-              et les nouvelles technologies. Mon objectif est de devenir un développeur web 
-              full-stack compétent et de contribuer à des projets innovants.
+              {portfolioData.about.description}
             </p>
             
             <h3 className={`text-2xl font-semibold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
@@ -36,7 +35,7 @@ const About = ({ isDark }) => {
             </h3>
             
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-              {['Curiosité', 'Autonomie', 'Travail d\'équipe'].map((skill, index) => (
+              {portfolioData.about.qualities.map((skill, index) => (
                 <div
                   key={skill}
                   className={`p-4 rounded-lg shadow-md ${

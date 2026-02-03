@@ -115,6 +115,6 @@ export const portfolioData = {
   chatbot: {
     greeting: "Bonjour, je suis l'assistant de ce portfolio. Je peux vous présenter le travail et les compétences de Herimamy.",
     welcomeButtons: ["Mes projets", "Mes compétences", "Mon parcours", "À propos", "Contact"],
-    openingDelay: 3000 // 3 secondes
+    openingDelay: 3000  
   }
 };
