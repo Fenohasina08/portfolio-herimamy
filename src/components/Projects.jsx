@@ -1,48 +1,24 @@
  import React from 'react';
 import { ExternalLink, Clock, CheckCircle } from 'lucide-react';
+import { portfolioData } from '../data/portfolioData';
 
 const Projects = ({ isDark }) => {
-  const projects = [
-    {
-      title: 'Site de restaurant sushi',
-      description: 'Site web moderne pour un restaurant de sushi avec menu interactif et système de commande en ligne.',
-      stack: 'React • TailwindCSS • JavaScript',
-      image: 'https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      deployed: false, // Non déployé
-      demoLink: '#',
-    },
-    {
-      title: 'Test de dactylographie',
-      description: 'Application de test de vitesse de frappe avec système WPM, différents niveaux de difficulté et statistiques détaillées.',
-      stack: 'JavaScript • HTML • CSS',
-      image: 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      deployed: true, // Déployé
-      demoLink: 'https://hikeyboardgame.netlify.app/',
-    },
-    {
-      title: 'Portfolio Geek\'sopap',
-      description: 'Plateforme de ressources numériques pour la communauté geek avec système de partage et de curation de contenu.',
-      stack: 'React • TypeScript • TailwindCSS',
-      image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      deployed: true, // Maintenant déployé
-      demoLink: 'https://sopatek-madagascar.vercel.app/',
-    }
-  ];
+  const projects = portfolioData.projects;
 
   return (
     <section id="projets" className={`py-20 ${isDark ? 'bg-gray-900' : 'bg-gray-50'}`}>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+      <div className="max-w-6xl px-4 mx-auto sm:px-6 lg:px-8">
+        <div className="mb-16 text-center">
           <h2 className={`text-4xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
             Mes Projets
           </h2>
-          <div className="w-20 h-1 bg-purple-500 mx-auto"></div>
+          <div className="w-20 h-1 mx-auto bg-purple-500"></div>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {projects.map((project) => (
             <div
-              key={project.title}
+              key={project.id}
               className={`rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300 ${
                 isDark ? 'bg-gray-800' : 'bg-white'
               }`}
@@ -70,22 +46,22 @@ const Projects = ({ isDark }) => {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+                  className="object-cover w-full h-48 transition-transform duration-300 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-300 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100">
                   {project.deployed ? (
                     <a
                       href={project.demoLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-purple-500 hover:bg-purple-600 text-white p-3 rounded-full transition-colors duration-300 flex items-center justify-center"
+                      className="flex items-center justify-center p-3 text-white transition-colors duration-300 bg-purple-500 rounded-full hover:bg-purple-600"
                       title="Voir le site déployé"
                     >
                       <ExternalLink className="w-5 h-5" />
                     </a>
                   ) : (
                     <button
-                      className="bg-gray-500 cursor-not-allowed text-white p-3 rounded-full flex items-center justify-center"
+                      className="flex items-center justify-center p-3 text-white bg-gray-500 rounded-full cursor-not-allowed"
                       title="Site en cours de déploiement"
                       disabled
                     >
@@ -103,10 +79,10 @@ const Projects = ({ isDark }) => {
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {project.stack.split(' • ').map((tech) => (
+                  {project.stack.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 bg-purple-500 text-white text-sm rounded-full"
+                      className="px-3 py-1 text-sm text-white bg-purple-500 rounded-full"
                     >
                       {tech}
                     </span>
