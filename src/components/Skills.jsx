@@ -1,34 +1,8 @@
  import React from 'react';
+import { portfolioData } from '../data/portfolioData';
 
 const Skills = ({ isDark }) => {
-  // Mapping des icônes pour chaque compétence
-  const skillIcons = {
-    // Langages
-    'HTML': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
-    'CSS': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
-    'JavaScript': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
-    'React': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
-    'TypeScript': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
-    'Java': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg',
-    'PostgreSQL': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg',
-    
-    // Outils
-    'Git/GitHub': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg',
-    'TailwindCSS': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg',
-    'Figma': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg',
-    'VS Code': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg'
-  };
-
-  const skillCategories = [
-    {
-      title: 'Langages',
-      skills: ['HTML', 'CSS', 'JavaScript', 'React', 'TypeScript', 'Java', 'PostgreSQL']
-    },
-    {
-      title: 'Outils',
-      skills: ['Git/GitHub', 'TailwindCSS', 'Figma', 'VS Code']
-    }
-  ];
+  const skillCategories = portfolioData.skills.categories;
 
   return (
     <section id="compétences" className="py-20">
@@ -52,20 +26,20 @@ const Skills = ({ isDark }) => {
               <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
                 {category.skills.map((skill, index) => (
                   <div
-                    key={skill}
+                    key={skill.name}
                     className={`p-6 rounded-xl shadow-lg text-center transform hover:scale-110 hover:shadow-2xl transition-all duration-300 ${
                       isDark ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white hover:bg-gray-50'
                     }`}
                   >
                     <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4">
                       <img 
-                        src={skillIcons[skill]} 
-                        alt={`${skill} icon`}
+                        src={skill.icon} 
+                        alt={`${skill.name} icon`}
                         className="object-contain w-12 h-12"
                       />
                     </div>
                     <span className={`font-medium ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                      {skill}
+                      {skill.name}
                     </span>
                   </div>
                 ))}
