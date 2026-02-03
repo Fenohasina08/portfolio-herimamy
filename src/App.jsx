@@ -9,6 +9,7 @@ import Experience from './components/Experience';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Chatbot from './components/chatbot'; // AJOUTEZ CETTE LIGNE
 
 function App() {
   // Gestion du thème (Dark Mode par défaut)
@@ -53,6 +54,9 @@ function App() {
 
       {/* Pied de page */}
       <Footer isDark={isDark} />
+      
+      {/* CHATBOT - AJOUTEZ CETTE LIGNE */}
+      <Chatbot isDark={isDark} />
       
     </div>
   );
