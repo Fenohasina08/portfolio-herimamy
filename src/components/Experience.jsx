@@ -1,21 +1,9 @@
-import React from 'react';
+ import React from 'react';
 import { Briefcase, GraduationCap } from 'lucide-react';
+import { portfolioData } from '../data/portfolioData';
 
 const Experience = ({ isDark }) => {
-  const experiences = [
-    {
-      title: 'Stage - Direction des Systèmes d\'Information',
-      period: '2024',
-      description: 'Développement web avec HTML, CSS et JavaScript. Contribution à des projets d\'amélioration des systèmes internes.',
-      type: 'stage'
-    },
-    {
-      title: '2em année Informatique',
-      period: '2023 - 2025',
-      description: 'Formation en développement logiciel, structures de données, algorithmique et développement web.',
-      type: 'formation'
-    }
-  ];
+  const experiences = portfolioData.experiences;
 
   return (
     <section id="expérience" className="py-20">
@@ -33,7 +21,7 @@ const Experience = ({ isDark }) => {
           <div className="space-y-12">
             {experiences.map((exp, index) => (
               <div
-                key={exp.title}
+                key={exp.id}
                 className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
               >
                 <div className="flex-1">
