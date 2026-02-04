@@ -1,11 +1,28 @@
  import React from 'react';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Download } from 'lucide-react'; // AJOUT: Import de Download
 import Particles from 'react-tsparticles';
 import { loadSlim } from 'tsparticles-slim';
 
 const Hero = ({ isDark }) => {
   const particlesInit = async (engine) => {
     await loadSlim(engine);
+  };
+
+  // Fonction de téléchargement du CV
+  const handleDownloadCV = (event) => {
+    // Crée un lien invisible vers le fichier dans public/
+    const link = document.createElement('a');
+    link.href = '/cv-feno.pdf'; // Chemin vers votre CV
+    link.download = `CV_Herimamy_Fenohasina_${new Date().getFullYear()}.pdf`; // Nom du fichier téléchargé
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    // Animation de feedback (optionnel)
+    event.currentTarget.classList.add('scale-95');
+    setTimeout(() => {
+      event.currentTarget.classList.remove('scale-95');
+    }, 150);
   };
 
   const particlesOptions = {
@@ -109,13 +126,26 @@ const Hero = ({ isDark }) => {
             "Passionné par le développement web et la création de solutions modernes."
           </p>
           
+          {/* SECTION BOUTONS MODIFIÉE - 3 boutons au lieu de 2 */}
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
+            {/* Bouton 1: Voir mes projets (existant) */}
             <a
               href="#projets"
               className="px-8 py-3 text-white transition-all duration-300 transform bg-purple-500 rounded-full shadow-lg hover:bg-purple-600 hover:scale-105"
             >
               Voir mes projets
             </a>
+            
+            {/* NOUVEAU BOUTON: Télécharger CV */}
+            <button
+              onClick={handleDownloadCV}
+              className="flex items-center justify-center gap-2 px-8 py-3 text-white transition-all duration-300 transform rounded-full shadow-lg bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 hover:scale-105"
+            >
+              <Download className="w-5 h-5" />
+              Télécharger CV
+            </button>
+            
+            {/* Bouton 2: Me contacter (existant) */}
             <a
               href="#contact"
               className={`border-2 border-purple-500 text-purple-500 hover:bg-purple-500 hover:text-white px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105 ${
