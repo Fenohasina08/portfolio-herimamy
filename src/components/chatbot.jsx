@@ -1,6 +1,6 @@
  import React, { useState, useEffect, useRef } from 'react';
 import { portfolioData } from '../data/portfolioData';
-import { X, MessageCircle, ChevronRight, Home, ExternalLink, Mail, Phone, MapPin, Briefcase, GraduationCap, Github, Linkedin, Facebook } from 'lucide-react';
+import { X, MessageCircle, ChevronRight, Home, ExternalLink, Mail, Phone, MapPin, Briefcase, GraduationCap, Github, Linkedin, Facebook, Download } from 'lucide-react';
 
 const Chatbot = ({ isDark }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,6 +12,16 @@ const Chatbot = ({ isDark }) => {
   // Icônes mapping
   const iconComponents = {
     Mail, Phone, MapPin, Briefcase, GraduationCap, Github, Linkedin, Facebook
+  };
+
+  // Fonction de téléchargement CV
+  const handleDownloadCV = () => {
+    const link = document.createElement('a');
+    link.href = '/cv-feno.pdf';
+    link.download = `CV_Herimamy_Fenohasina_${new Date().getFullYear()}.pdf`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   // Ouverture automatique après délai
@@ -81,6 +91,10 @@ const Chatbot = ({ isDark }) => {
       case 'Contact':
         setCurrentView('contact');
         addBotMessage(`Vous pouvez me contacter par email à ${portfolioData.personal.email} ou par téléphone au ${portfolioData.personal.phone}.`);
+        break;
+      case 'Télécharger CV':
+        handleDownloadCV();
+        addBotMessage('Je lance le téléchargement de mon CV. Le fichier devrait se télécharger automatiquement.');
         break;
       default:
         addBotMessage("Je ne comprends pas cette option.");
@@ -288,13 +302,27 @@ const Chatbot = ({ isDark }) => {
           </div>
         </div>
       </div>
-      <button
-        onClick={() => window.location.href = `mailto:${portfolioData.personal.email}`}
-        className="flex items-center justify-center w-full gap-2 p-3 font-medium text-white transition-colors bg-purple-500 rounded-lg hover:bg-purple-600"
-      >
-        <Mail className="w-5 h-5" />
-        ✉️ Envoyer un email
-      </button>
+      
+      {/* SECTION BOUTONS D'ACTION */}
+      <div className="flex flex-col gap-2">
+        <button
+          onClick={() => window.location.href = `mailto:${portfolioData.personal.email}`}
+          className="flex items-center justify-center w-full gap-2 p-3 font-medium text-white transition-colors bg-purple-500 rounded-lg hover:bg-purple-600"
+        >
+          <Mail className="w-5 h-5" />
+          ✉️ Envoyer un email
+        </button>
+        
+        {/* NOUVEAU BOUTON : Télécharger CV */}
+        <button
+          onClick={handleDownloadCV}
+          className="flex items-center justify-center w-full gap-2 p-3 font-medium text-white transition-colors bg-green-500 rounded-lg hover:bg-green-600"
+        >
+          <Download className="w-5 h-5" />
+          📄 Télécharger mon CV
+        </button>
+      </div>
+      
       <button
         onClick={showWelcomeButtons}
         className="w-full p-2 text-sm text-center text-purple-600 dark:text-purple-400 hover:underline"
