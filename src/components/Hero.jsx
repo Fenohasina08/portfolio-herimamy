@@ -135,4 +135,4 @@ const Hero = ({ isDark }) => {
   );
 };
 
-export default Hero;
+export default Hero
