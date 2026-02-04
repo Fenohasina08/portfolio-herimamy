@@ -112,9 +112,10 @@ export const portfolioData = {
   },
 
   // CONFIGURATION CHATBOT
-  chatbot: {
+    chatbot: {
     greeting: "Bonjour, je suis l'assistant de ce portfolio. Je peux vous présenter le travail et les compétences de Herimamy.",
-    welcomeButtons: ["Mes projets", "Mes compétences", "Mon parcours", "À propos", "Contact"],
+    welcomeButtons: ["Mes projets", "Mes compétences", "Mon parcours", "À propos", "Contact", "Télécharger CV"],
     openingDelay: 3000  
   }
+  
 };
