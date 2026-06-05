@@ -1,15 +1,15 @@
  import React, { useState, useEffect } from 'react';
 // Importation de tous tes composants
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import AnimatedStars from './components/AnimatedStars';
-import About from './components/About';
-import Skills from './components/Skills';
-import Experience from './components/Experience';
-import Projects from './components/Projects';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import Chatbot from './components/chatbot'; // AJOUTEZ CETTE LIGNE
+import Navbar from './components/layout/Navbar';
+import Hero from './components/sections/Hero';
+import AnimatedStars from './components/layout/AnimatedStars';
+import About from './components/sections/About';
+import Skills from './components/sections/Skills';
+import Experience from './components/sections/Experience';
+import Projects from './components/sections/Projects';
+import Contact from './components/sections/Contact';
+import Footer from './components/layout/Footer';
+import Chatbot from './components/common/Chatbot';
 
 function App() {
   // Gestion du thème (Dark Mode par défaut)
