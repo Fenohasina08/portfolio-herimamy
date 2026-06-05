@@ -1,6 +1,6 @@
  import React from 'react';
 import { Github, Linkedin, Facebook, Mail, Phone, MapPin } from 'lucide-react';
-import { portfolioData } from '../data/portfolioData';
+import { portfolioData } from '../../data/portfolioData';
 
 // Mapping des icônes Lucide React
 const iconComponents = {

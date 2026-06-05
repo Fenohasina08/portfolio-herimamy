@@ -1,6 +1,6 @@
  import React from 'react';
 import { Briefcase, GraduationCap } from 'lucide-react';
-import { portfolioData } from '../data/portfolioData';
+import { portfolioData } from '../../data/portfolioData';
 
 const Experience = ({ isDark }) => {
   const experiences = portfolioData.experiences;

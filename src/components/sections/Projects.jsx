@@ -1,6 +1,6 @@
  import React from 'react';
 import { ExternalLink, Clock, CheckCircle } from 'lucide-react';
-import { portfolioData } from '../data/portfolioData';
+import { portfolioData } from '../../data/portfolioData';
 
 const Projects = ({ isDark }) => {
   const projects = portfolioData.projects;
