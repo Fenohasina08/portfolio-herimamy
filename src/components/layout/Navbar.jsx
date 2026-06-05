@@ -1,18 +1,33 @@
-import React, { useState, useEffect } from 'react';
-import { Moon, Sun, Download } from 'lucide-react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { Moon, Sun, Download, Menu, X } from 'lucide-react';
 
 const Navbar = ({ isDark, toggleTheme }) => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('accueil');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  // Gestion du scroll pour l'effet glass et le scroll spy
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+
+      // Scroll spy
+      const sections = document.querySelectorAll('section[id]');
+      let current = 'accueil';
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 100;
+        if (window.scrollY >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+      setActiveSection(current);
     };
-    window.addEventListener('scroll', handleScroll);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-   const handleDownloadCV = () => {
+  const handleDownloadCV = () => {
     const link = document.createElement('a');
     link.href = '/Herimamy.pdf';
     link.download = `CV_Herimamy_Fenohasina_${new Date().getFullYear()}.pdf`;
@@ -21,65 +36,120 @@ const Navbar = ({ isDark, toggleTheme }) => {
     document.body.removeChild(link);
   };
 
-  const navItems = ['Accueil', 'À propos', 'Compétences', 'Projets', 'Expérience', 'Contact'];
+  // Liens avec leur ancre
+  const navItems = [
+    { label: 'Accueil', href: '#accueil' },
+    { label: 'À propos', href: '#propos' },
+    { label: 'Compétences', href: '#compétences' },
+    { label: 'Projets', href: '#projets' },
+    { label: 'Expérience', href: '#experience' },
+    { label: 'Contact', href: '#contact' },
+  ];
+
+  // Classes conditionnelles pour le glass effect (utilisant les tokens)
+  const glassClasses = isScrolled
+    ? 'bg-card/80 backdrop-blur-md shadow-lg border-b border-border'
+    : 'bg-transparent';
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      isScrolled 
-        ? isDark 
-          ? 'bg-gray-900/90 backdrop-blur-md shadow-lg' 
-          : 'bg-white/90 backdrop-blur-md shadow-lg'
-        : 'bg-transparent'
-    }`}>
+    <nav
+      className={`fixed top-0 w-full z-50 transition-all duration-500 ${glassClasses}`}
+      role="navigation"
+      aria-label="Navigation principale"
+    >
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="flex items-center justify-between py-4">
-          <div className={`font-bold text-xl ${isDark ? 'text-white' : 'text-gray-900'}`}>
+          {/* Logo */}
+          <a href="#accueil" className="text-xl font-bold transition-colors text-title hover:text-link">
             RA-FANOMEZANA
-          </div>
-          
+          </a>
+
+          {/* Navigation desktop */}
           <div className="hidden space-x-8 md:flex">
-            {navItems.map((item, index) => (
+            {navItems.map(({ label, href }) => (
               <a
-                key={item}
-                href={`#${item.toLowerCase().replace(' ', '-').replace('à-', '')}`}
-                className={`hover:text-purple-500 transition-colors duration-300 ${
-                  isDark ? 'text-gray-300' : 'text-gray-700'
+                key={href}
+                href={href}
+                className={`relative pb-1 text-sm font-medium transition-colors duration-300 ${
+                  activeSection === href.substring(1)
+                    ? 'text-link'
+                    : 'text-secondary hover:text-link'
                 }`}
               >
-                {item}
+                {label}
+                {activeSection === href.substring(1) && (
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-link rounded-full" />
+                )}
               </a>
             ))}
           </div>
 
-           <div className="flex items-center gap-3">
-             <button
+          {/* Actions (toggle thème, CV, menu burger) */}
+          <div className="flex items-center gap-3">
+            {/* Toggle thème */}
+            <button
               onClick={toggleTheme}
-              className={`p-2 rounded-full transition-colors duration-300 ${
-                isDark 
-                  ? 'bg-gray-800 text-yellow-400 hover:bg-gray-700' 
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-              }`}
+              className="p-2 transition-colors rounded-full bg-surface hover:bg-border text-secondary hover:text-title"
               title={isDark ? "Passer en mode clair" : "Passer en mode sombre"}
+              aria-label="Changer le thème"
             >
               {isDark ? <Sun size={20} /> : <Moon size={20} />}
             </button>
 
-             <button
+            {/* CV desktop */}
+            <button
               onClick={handleDownloadCV}
-              className={`px-3 py-2 rounded-lg transition-all duration-300 flex items-center gap-2 ${
-                isDark
-                  ? 'bg-gradient-to-r from-green-600 to-emerald-700 text-white hover:from-green-700 hover:to-emerald-800'
-                  : 'bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:from-green-600 hover:to-emerald-700'
-              }`}
-              title="Télécharger mon CV en PDF"
-              aria-label="Télécharger mon curriculum vitae"
+              className="items-center hidden gap-2 px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg sm:flex bg-btn-primary hover:bg-btn-primary-hover text-btn-primary-txt hover:scale-105"
+              title="Télécharger mon CV"
+              aria-label="Télécharger le CV"
             >
               <Download className="w-4 h-4" />
-              <span className="hidden text-sm font-medium sm:inline">
-                Download CV
-              </span>
-              
-               <span className="hidden sr-only sm:not-sr-only">Download CV</span>
+              <span>CV</span>
+            </button>
+
+            {/* Burger mobile */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 transition-colors rounded-md md:hidden text-secondary hover:text-title hover:bg-surface"
+              aria-expanded={mobileMenuOpen}
+              aria-label="Menu principal"
+            >
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+        </div>
+
+        {/* Menu mobile */}
+        <div
+          className={`md:hidden overflow-hidden transition-all duration-300 ${
+            mobileMenuOpen ? 'max-h-96 py-4' : 'max-h-0'
+          }`}
+        >
+          <div className="flex flex-col space-y-3">
+            {navItems.map(({ label, href }) => (
+              <a
+                key={href}
+                href={href}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  activeSection === href.substring(1)
+                    ? 'bg-primary-100 dark:bg-primary-900/30 text-link'
+                    : 'text-secondary hover:text-title hover:bg-surface'
+                }`}
+              >
+                {label}
+              </a>
+            ))}
+            {/* CV mobile */}
+            <button
+              onClick={() => {
+                handleDownloadCV();
+                setMobileMenuOpen(false);
+              }}
+              className="flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium transition-all rounded-lg bg-btn-primary hover:bg-btn-primary-hover text-btn-primary-txt"
+            >
+              <Download className="w-4 h-4" />
+              Télécharger CV
             </button>
           </div>
         </div>

@@ -1,5 +1,4 @@
- import React, { useState, useEffect } from 'react';
-// Importation de tous tes composants
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/layout/Navbar';
 import Hero from './components/sections/Hero';
 import AnimatedStars from './components/layout/AnimatedStars';
@@ -10,54 +9,48 @@ import Projects from './components/sections/Projects';
 import Contact from './components/sections/Contact';
 import Footer from './components/layout/Footer';
 import Chatbot from './components/common/Chatbot';
+import ScrollProgress from './components/common/ScrollProgress';
+import ScrollToTop from './components/common/ScrollToTop';
 
 function App() {
-  // Gestion du thème (Dark Mode par défaut)
   const [isDark, setIsDark] = useState(true);
 
-  // Fonction pour basculer le thème
   const toggleTheme = () => {
     setIsDark(!isDark);
   };
 
-  // Ajoute ou retire la classe 'dark' au body pour le CSS global si besoin
   useEffect(() => {
-    if (isDark) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
+    document.documentElement.classList.toggle('dark', isDark);
   }, [isDark]);
 
   return (
-    <div className={`min-h-screen transition-colors duration-500 ${isDark ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'}`}>
-      
-      {/* Fond étoilé animé (toujours en arrière-plan) */}
+    <div className="min-h-screen transition-colors duration-500 bg-bg text-body">
+      {/* Fond étoilé */}
       <AnimatedStars isDark={isDark} />
 
-      {/* Barre de navigation */}
+      {/* Barre de progression */}
+      <ScrollProgress />
+
+      {/* Navigation */}
       <Navbar isDark={isDark} toggleTheme={toggleTheme} />
 
       {/* Contenu principal */}
       <main>
         <Hero isDark={isDark} />
-        
         <div className="relative">
-          {/* On empile les sections les unes après les autres */}
-          <About isDark={isDark} />
-          <Skills isDark={isDark} />
-          <Experience isDark={isDark} />
-          <Projects isDark={isDark} />
-          <Contact isDark={isDark} />
+          <About />
+          <Skills />
+          <Experience />
+          <Projects />
+          <Contact />
         </div>
       </main>
 
-      {/* Pied de page */}
-      <Footer isDark={isDark} />
-      
-      {/* CHATBOT - AJOUTEZ CETTE LIGNE */}
+      <Footer />
       <Chatbot isDark={isDark} />
-      
+
+      {/* Bouton retour en haut */}
+      <ScrollToTop />
     </div>
   );
 }

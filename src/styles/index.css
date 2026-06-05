@@ -320,3 +320,20 @@ body {
 .bg-gradient-radial   { background-image: radial-gradient(circle, var(--tw-gradient-from) 0%, var(--tw-gradient-to) 100%); }
 .blur-2xl             { filter: blur(48px); }
 .blur-3xl             { filter: blur(64px); }
+/* Smooth scroll activé globalement */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animation menu mobile (optionnel, déjà géré par les classes max-h) */
+@media (prefers-reduced-motion: no-preference) {
+  .mobile-menu-enter {
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+  }
+  .mobile-menu-open {
+    max-height: 500px;
+    opacity: 1;
+  }
+}
