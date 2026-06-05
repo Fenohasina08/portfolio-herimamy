@@ -1,5 +1,5 @@
  import React, { useState, useEffect, useRef } from 'react';
-import { portfolioData } from '../data/portfolioData';
+import { portfolioData } from '../../data/portfolioData';
 import { X, MessageCircle, ChevronRight, Home, ExternalLink, Mail, Phone, MapPin, Briefcase, GraduationCap, Github, Linkedin, Facebook, Download } from 'lucide-react';
 
 const Chatbot = ({ isDark }) => {
