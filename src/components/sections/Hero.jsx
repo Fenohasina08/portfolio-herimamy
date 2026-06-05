@@ -79,8 +79,7 @@ const Hero = ({ isDark }) => {
 
   return (
     <section id="accueil" className="relative flex items-center justify-center min-h-screen overflow-hidden">
-      {/* Particules en arrière-plan */}
-      <Particles
+       <Particles
         id="tsparticles"
         init={particlesInit}
         options={particlesOptions}

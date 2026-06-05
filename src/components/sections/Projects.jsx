@@ -1,4 +1,4 @@
- import React from 'react';
+import React from 'react';
 import { ExternalLink, Clock, CheckCircle } from 'lucide-react';
 import { portfolioData } from '../../data/portfolioData';
 
@@ -89,8 +89,7 @@ const Projects = ({ isDark }) => {
                   ))}
                 </div>
                 
-                {/* Bouton unique */}
-                <div className="mt-4">
+                 <div className="mt-4">
                   {project.deployed ? (
                     <a
                       href={project.demoLink}

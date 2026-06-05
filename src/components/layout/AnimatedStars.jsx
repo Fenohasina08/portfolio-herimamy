@@ -10,8 +10,7 @@ const AnimatedStars = ({ isDark }) => {
     let stars = [];
     const starCount = 100;
 
-    // Ajuster la taille du canvas
-    const resize = () => {
+     const resize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
       stars = Array.from({ length: starCount }, () => ({
@@ -32,20 +31,16 @@ const AnimatedStars = ({ isDark }) => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       stars.forEach((star) => {
-        // Mise à jour de la position
         star.x += star.dx;
         star.y += star.dy;
 
-        // Rebonds sur les bords
         if (star.x < 0 || star.x > canvas.width) star.dx *= -1;
         if (star.y < 0 || star.y > canvas.height) star.dy *= -1;
 
-        // Scintillement
-        star.opacity += star.dOpacity;
+         star.opacity += star.dOpacity;
         if (star.opacity <= 0 || star.opacity >= 1) star.dOpacity *= -1;
 
-        // Couleur
-        ctx.beginPath();
+         ctx.beginPath();
         ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
         ctx.fillStyle = isDark
           ? `rgba(255, 255, 255, ${star.opacity})`

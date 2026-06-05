@@ -2,8 +2,7 @@
 import { Github, Linkedin, Facebook, Mail, Phone, MapPin } from 'lucide-react';
 import { portfolioData } from '../../data/portfolioData';
 
-// Mapping des icônes Lucide React
-const iconComponents = {
+ const iconComponents = {
   Github: Github,
   Linkedin: Linkedin,
   Facebook: Facebook,
@@ -117,8 +116,7 @@ const Contact = ({ isDark }) => {
               })}
             </div>
 
-            {/* Instructions */}
-            <div className={`mt-8 p-4 rounded-lg ${isDark ? 'bg-gray-800 border border-gray-700' : 'bg-purple-50 border border-purple-200'}`}>
+             <div className={`mt-8 p-4 rounded-lg ${isDark ? 'bg-gray-800 border border-gray-700' : 'bg-purple-50 border border-purple-200'}`}>
               <h5 className={`font-medium mb-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>
                 📝 Comment me contacter ?
               </h5>
