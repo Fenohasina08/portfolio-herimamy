@@ -1,22 +1,24 @@
- import React from 'react';
+import React from 'react';
 import { portfolioData } from '../../data/portfolioData';
 
 const About = ({ isDark }) => {
   return (
-    <section id="propos" className={`py-20 ${isDark ? 'bg-gray-900' : 'bg-gray-50'}`}>
+    <section id="propos" className="py-20 bg-about-bg">
       <div className="max-w-6xl px-4 mx-auto sm:px-6 lg:px-8">
         <div className="mb-16 text-center">
-          <h2 className={`text-4xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+          <h2 className="mb-4 text-4xl font-bold text-title">
             {portfolioData.about.title}
           </h2>
-          <div className="w-20 h-1 mx-auto bg-purple-500"></div>
+          <div className="w-20 h-1 mx-auto bg-link"></div>
         </div>
-        
+
         <div className="grid items-center gap-12 md:grid-cols-2">
           <div className="flex justify-center">
-            <div className={`w-80 h-80 rounded-full ${isDark ? 'bg-gray-800' : 'bg-white'} shadow-2xl flex items-center justify-center overflow-hidden`}>
-              <div className={`w-72 h-72 rounded-full ${isDark ? 'bg-gray-700' : 'bg-gray-100'} overflow-hidden`}>
-                <img 
+            {/* Cercle extérieur */}
+            <div className="flex items-center justify-center overflow-hidden rounded-full shadow-2xl w-80 h-80 bg-card">
+              {/* Cercle intérieur (léger contraste) */}
+              <div className="overflow-hidden rounded-full w-72 h-72 bg-border">
+                <img
                   src={portfolioData.about.image}
                   alt={portfolioData.personal.name}
                   className="object-cover w-full h-full"
@@ -24,25 +26,23 @@ const About = ({ isDark }) => {
               </div>
             </div>
           </div>
-          
+
           <div>
-            <p className={`text-lg mb-6 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+            <p className="mb-6 text-lg text-secondary">
               {portfolioData.about.description}
             </p>
-            
-            <h3 className={`text-2xl font-semibold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+
+            <h3 className="mb-4 text-2xl font-semibold text-title">
               Mes qualités
             </h3>
-            
+
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
               {portfolioData.about.qualities.map((skill, index) => (
                 <div
                   key={skill}
-                  className={`p-4 rounded-lg shadow-md ${
-                    isDark ? 'bg-gray-800' : 'bg-white'
-                  } transform hover:scale-105 transition-all duration-300`}
+                  className="p-4 transition-all duration-300 transform rounded-lg shadow-md bg-card hover:scale-105"
                 >
-                  <span className={`font-medium ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                  <span className="font-medium text-title">
                     {skill}
                   </span>
                 </div>
