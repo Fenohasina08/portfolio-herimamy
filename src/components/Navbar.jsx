@@ -15,7 +15,7 @@ const Navbar = ({ isDark, toggleTheme }) => {
   // Fonction de téléchargement CV CORRIGÉE
   const handleDownloadCV = () => {
     const link = document.createElement('a');
-    link.href = '/cv-feno.pdf';
+    link.href = '/Herimamy.pdf';
     link.download = `CV_Herimamy_Fenohasina_${new Date().getFullYear()}.pdf`;
     document.body.appendChild(link);
     link.click();
