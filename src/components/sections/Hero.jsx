@@ -73,7 +73,7 @@ const Hero = ({ isDark }) => {
         id="tsparticles"
         init={particlesInit}
         options={particlesOptions}
-        className="absolute inset-0"
+        className="fixed inset-0"
       />
 
       <div

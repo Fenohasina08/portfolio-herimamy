@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/layout/Navbar';
 import Hero from './components/sections/Hero';
-import AnimatedStars from './components/layout/AnimatedStars';
 import About from './components/sections/About';
 import Skills from './components/sections/Skills';
 import Experience from './components/sections/Experience';
@@ -25,9 +24,6 @@ function App() {
 
   return (
     <div className="min-h-screen transition-colors duration-500 bg-bg text-body">
-      {/* Fond étoilé */}
-      <AnimatedStars isDark={isDark} />
-
       {/* Barre de progression */}
       <ScrollProgress />
 
@@ -35,7 +31,7 @@ function App() {
       <Navbar isDark={isDark} toggleTheme={toggleTheme} />
 
       {/* Contenu principal */}
-      <main>
+      <main >
         <Hero isDark={isDark} />
         <div className="relative">
           <About />
