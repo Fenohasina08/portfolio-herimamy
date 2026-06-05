@@ -1,4 +1,4 @@
- import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Moon, Sun, Download } from 'lucide-react';
 
 const Navbar = ({ isDark, toggleTheme }) => {
@@ -12,8 +12,7 @@ const Navbar = ({ isDark, toggleTheme }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Fonction de téléchargement CV CORRIGÉE
-  const handleDownloadCV = () => {
+   const handleDownloadCV = () => {
     const link = document.createElement('a');
     link.href = '/cv-feno.pdf';
     link.download = `CV_Herimamy_Fenohasina_${new Date().getFullYear()}.pdf`;
@@ -52,10 +51,8 @@ const Navbar = ({ isDark, toggleTheme }) => {
             ))}
           </div>
 
-          {/* CONTENEUR BOUTONS D'ACTION */}
-          <div className="flex items-center gap-3">
-            {/* Bouton Thème */}
-            <button
+           <div className="flex items-center gap-3">
+             <button
               onClick={toggleTheme}
               className={`p-2 rounded-full transition-colors duration-300 ${
                 isDark 
@@ -67,8 +64,7 @@ const Navbar = ({ isDark, toggleTheme }) => {
               {isDark ? <Sun size={20} /> : <Moon size={20} />}
             </button>
 
-            {/* Bouton Télécharger CV SIMPLIFIÉ */}
-            <button
+             <button
               onClick={handleDownloadCV}
               className={`px-3 py-2 rounded-lg transition-all duration-300 flex items-center gap-2 ${
                 isDark
@@ -83,8 +79,7 @@ const Navbar = ({ isDark, toggleTheme }) => {
                 Download CV
               </span>
               
-              {/* Version mobile : icône seule */}
-              <span className="hidden sr-only sm:not-sr-only">Download CV</span>
+               <span className="hidden sr-only sm:not-sr-only">Download CV</span>
             </button>
           </div>
         </div>

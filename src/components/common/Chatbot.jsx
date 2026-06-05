@@ -9,13 +9,11 @@ const Chatbot = ({ isDark }) => {
   const [selectedProject, setSelectedProject] = useState(null);
   const messagesEndRef = useRef(null);
 
-  // Icônes mapping
-  const iconComponents = {
+   const iconComponents = {
     Mail, Phone, MapPin, Briefcase, GraduationCap, Github, Linkedin, Facebook
   };
 
-  // Fonction de téléchargement CV
-  const handleDownloadCV = () => {
+   const handleDownloadCV = () => {
     const link = document.createElement('a');
     link.href = '/cv-feno.pdf';
     link.download = `CV_Herimamy_Fenohasina_${new Date().getFullYear()}.pdf`;
@@ -24,8 +22,7 @@ const Chatbot = ({ isDark }) => {
     document.body.removeChild(link);
   };
 
-  // Ouverture automatique après délai
-  useEffect(() => {
+   useEffect(() => {
     const timer = setTimeout(() => {
       if (!isOpen) {
         setIsOpen(true);
@@ -37,8 +34,7 @@ const Chatbot = ({ isDark }) => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Scroll vers le bas des messages
-  useEffect(() => {
+   useEffect(() => {
     scrollToBottom();
   }, [messages]);
 
@@ -58,8 +54,7 @@ const Chatbot = ({ isDark }) => {
     setCurrentView('welcome');
   };
 
-  // Navigation vers les sections
-  const scrollToSection = (sectionId) => {
+   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -67,8 +62,7 @@ const Chatbot = ({ isDark }) => {
     }
   };
 
-  // Gestion des actions
-  const handleWelcomeButton = (buttonText) => {
+   const handleWelcomeButton = (buttonText) => {
     addUserMessage(buttonText);
 
     switch (buttonText) {
@@ -110,8 +104,7 @@ const Chatbot = ({ isDark }) => {
     addBotMessage(`**${project.title}**\n\n${project.description}\n\n🔧 Technologies: ${project.stack.join(', ')}\n\n📊 Statut: ${status}`);
   };
 
-  // Rendu des vues
-  const renderWelcomeButtons = () => (
+   const renderWelcomeButtons = () => (
     <div className="flex flex-wrap gap-2 mt-3">
       {portfolioData.chatbot.welcomeButtons.map((button, index) => (
         <button
@@ -303,8 +296,7 @@ const Chatbot = ({ isDark }) => {
         </div>
       </div>
       
-      {/* SECTION BOUTONS D'ACTION */}
-      <div className="flex flex-col gap-2">
+       <div className="flex flex-col gap-2">
         <button
           onClick={() => window.location.href = `mailto:${portfolioData.personal.email}`}
           className="flex items-center justify-center w-full gap-2 p-3 font-medium text-white transition-colors bg-purple-500 rounded-lg hover:bg-purple-600"
@@ -313,8 +305,7 @@ const Chatbot = ({ isDark }) => {
           ✉️ Envoyer un email
         </button>
         
-        {/* NOUVEAU BOUTON : Télécharger CV */}
-        <button
+         <button
           onClick={handleDownloadCV}
           className="flex items-center justify-center w-full gap-2 p-3 font-medium text-white transition-colors bg-green-500 rounded-lg hover:bg-green-600"
         >
@@ -332,8 +323,7 @@ const Chatbot = ({ isDark }) => {
     </div>
   );
 
-  // Bouton flottant quand le chatbot est fermé
-  if (!isOpen) {
+   if (!isOpen) {
     return (
       <button
         onClick={() => setIsOpen(true)}
@@ -345,8 +335,7 @@ const Chatbot = ({ isDark }) => {
     );
   }
 
-  // Interface principale du chatbot
-  return (
+   return (
     <div className={`fixed bottom-6 right-6 w-96 max-w-[calc(100vw-2rem)] rounded-2xl shadow-2xl z-50 flex flex-col ${
       isDark ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'
     }`} style={{ maxHeight: '80vh' }}>
@@ -372,8 +361,7 @@ const Chatbot = ({ isDark }) => {
         </button>
       </div>
 
-      {/* Messages container */}
-      <div className="flex-1 p-4 overflow-y-auto" style={{ maxHeight: '400px' }}>
+       <div className="flex-1 p-4 overflow-y-auto" style={{ maxHeight: '400px' }}>
         {messages.map((msg, idx) => (
           <div key={idx} className={`mb-3 ${msg.isUser ? 'text-right' : ''}`}>
             <div className={`inline-block max-w-[80%] px-4 py-2 rounded-2xl ${
@@ -393,8 +381,7 @@ const Chatbot = ({ isDark }) => {
           </div>
         ))}
 
-        {/* Dynamic content */}
-        {currentView === 'welcome' && renderWelcomeButtons()}
+         {currentView === 'welcome' && renderWelcomeButtons()}
         {currentView === 'projects' && renderProjectsList()}
         {currentView === 'project-detail' && renderProjectDetail()}
         {currentView === 'skills' && renderSkills()}
@@ -414,8 +401,7 @@ const Chatbot = ({ isDark }) => {
         <div ref={messagesEndRef} />
       </div>
 
-      {/* Quick actions footer */}
-      <div className={`p-3 border-t ${
+       <div className={`p-3 border-t ${
         isDark ? 'border-gray-700 bg-gray-900' : 'border-gray-200 bg-gray-50'
       }`}>
         <div className="flex justify-between">

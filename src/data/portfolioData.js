@@ -1,8 +1,4 @@
- // src/data/portfolioData.js
-// MODIFIEZ CE FICHIER SEUL → TOUT SE MET À JOUR
-
 export const portfolioData = {
-  // INFORMATIONS GÉNÉRALES
   personal: {
     name: "Herimamy",
     role: "Développeur Web",
@@ -11,16 +7,14 @@ export const portfolioData = {
     phone: "+261 32 87 023 38"
   },
 
-  // SECTION À PROPOS
-  about: {
+   about: {
     title: "À propos de moi",
     description: "Actuellement étudiant en L2 Informatique, je suis passionné par le développement web et les nouvelles technologies. Mon objectif est de devenir un développeur web full-stack compétent et de contribuer à des projets innovants.",
     qualities: ["Curiosité", "Autonomie", "Travail d'équipe"],
     image: "/feno.png"
   },
 
-  // SECTION PARCOURS
-  experiences: [
+   experiences: [
     {
       id: "exp-1",
       title: "Stage - Direction des Systèmes d'Information",
@@ -39,8 +33,7 @@ export const portfolioData = {
     }
   ],
 
-  // SECTION PROJETS
-  projects: [
+   projects: [
     {
       id: "proj-1",
       title: "Site de restaurant sushi",
@@ -73,8 +66,7 @@ export const portfolioData = {
     }
   ],
 
-  // SECTION COMPÉTENCES
-  skills: {
+   skills: {
     categories: [
       {
         title: "Langages",
@@ -100,8 +92,7 @@ export const portfolioData = {
     ]
   },
 
-  // SECTION CONTACT
-  contact: {
+   contact: {
     title: "Contactez-moi",
     emailText: "Cliquez sur le bouton ci-dessous pour m'envoyer un email directement. Votre client de messagerie s'ouvrira avec mon adresse pré-remplie.",
     socialLinks: [
@@ -111,8 +102,7 @@ export const portfolioData = {
     ]
   },
 
-  // CONFIGURATION CHATBOT
-    chatbot: {
+     chatbot: {
     greeting: "Bonjour, je suis l'assistant de ce portfolio. Je peux vous présenter le travail et les compétences de Herimamy.",
     welcomeButtons: ["Mes projets", "Mes compétences", "Mon parcours", "À propos", "Contact", "Télécharger CV"],
     openingDelay: 3000  
