@@ -34,9 +34,9 @@ const Navbar = ({ isDark, toggleTheme }) => {
     { label: 'À propos',     href: '#propos' },
     { label: 'Compétences',  href: '#compétences' },
     { label: 'Projets',      href: '#projets' },
-    { label: 'Expérience',   href: '#experience' },
-    { label: 'Contact',      href: '#contact' },
-    { label: 'Certifications', href: '#certifications' },
+    { label: 'Expérience',      href: '#experience' },
+    { label: 'Certifications',  href: '#certifications' },
+    { label: 'Contact',         href: '#contact' },
   ];
 
   return (

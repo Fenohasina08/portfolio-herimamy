@@ -148,6 +148,63 @@ export const portfolioData = {
     ],
   },
 
+   certifications: [
+    {
+      id: "cert-1",
+      title: "Responsive Web Design",
+      issuer: "freeCodeCamp",
+      date: "2024",
+      status: "obtained",
+      tags: ["HTML", "CSS"],
+      url: "#",
+    },
+    {
+      id: "cert-2",
+      title: "JavaScript Algorithms and Data Structures",
+      issuer: "freeCodeCamp",
+      date: "2024",
+      status: "obtained",
+      tags: ["JavaScript"],
+      url: "#",
+    },
+    {
+      id: "cert-3",
+      title: "React — The Complete Guide",
+      issuer: "Udemy",
+      date: "2025",
+      status: "obtained",
+      tags: ["React", "Hooks", "Redux"],
+      url: "#",
+    },
+    {
+      id: "cert-4",
+      title: "Git & GitHub Bootcamp",
+      issuer: "Udemy",
+      date: "2025",
+      status: "obtained",
+      tags: ["Git", "GitHub"],
+      url: "#",
+    },
+    {
+      id: "cert-5",
+      title: "TypeScript — Complete Developer Guide",
+      issuer: "Udemy",
+      date: "ETA Q3 2025",
+      status: "inprogress",
+      tags: ["TypeScript"],
+      url: "#",
+    },
+    {
+      id: "cert-6",
+      title: "Node.js & Express — REST API",
+      issuer: "Coursera",
+      date: "ETA Q4 2025",
+      status: "inprogress",
+      tags: ["Node.js", "Express", "REST"],
+      url: "#",
+    },
+  ],
+ 
   chatbot: {
     greeting:
       "Salut ! Je suis l'assistant de ce portfolio. Que voulez-vous savoir sur Herimamy ?",
