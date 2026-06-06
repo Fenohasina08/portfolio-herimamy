@@ -15,7 +15,6 @@ const useInView = (options = { threshold: 0.15, triggerOnce: true }) => {
     }, options);
 
     if (ref.current) observer.observe(ref.current);
-
     return () => observer.disconnect();
   }, [options.threshold, options.triggerOnce]);
 

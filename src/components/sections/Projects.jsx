@@ -8,143 +8,187 @@ const Projects = () => {
   const [filter, setFilter] = useState('all');
   const [search, setSearch] = useState('');
 
-  const filteredProjects = projects.filter((project) => {
-    const matchesStatus = filter === 'all' || project.status === filter;
-    const matchesSearch =
-      project.title.toLowerCase().includes(search.toLowerCase()) ||
-      project.stack.some((tech) => tech.toLowerCase().includes(search.toLowerCase()));
-    return matchesStatus && matchesSearch;
+  const filtered = projects.filter((p) => {
+    const matchStatus = filter === 'all' || p.status === filter;
+    const q = search.toLowerCase();
+    const matchSearch = p.title.toLowerCase().includes(q) || p.stack.some((t) => t.toLowerCase().includes(q));
+    return matchStatus && matchSearch;
   });
 
   return (
-    <section id="projets" className="py-20 bg-projects-bg">
-      <div className="max-w-6xl px-4 mx-auto sm:px-6 lg:px-8">
+    <section id="projets" className="py-24" style={{ background: 'var(--projects-bg)' }}>
+      <div className="max-w-5xl px-6 mx-auto">
+
+        {/* Header */}
         <AnimateOnScroll direction="up">
-          <div className="mb-16 text-center">
-            <h2 className="mb-4 text-4xl font-bold text-title">Mes Projets</h2>
-            <div className="w-20 h-1 mx-auto bg-link"></div>
+          <div className="mb-16">
+            <div className="section-label">// Projets</div>
+            <h2 className="text-3xl font-bold" style={{ color: 'var(--title)', fontFamily: 'var(--font-sans)' }}>
+              Mes Projets
+            </h2>
+            <div className="section-divider" />
           </div>
         </AnimateOnScroll>
 
-        {/* Filtres */}
-        <AnimateOnScroll direction="up" delay={200}>
-          <div className="flex flex-col items-center justify-between mb-8 space-y-4 sm:flex-row">
-            <div className="flex space-x-2">
-              {['all', 'deployed', 'inprogress'].map((status) => (
+        {/* Filters */}
+        <AnimateOnScroll direction="up" delay={100}>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-10">
+            <div className="flex gap-2">
+              {[
+                { key: 'all',        label: 'Tous' },
+                { key: 'deployed',   label: 'Déployés' },
+                { key: 'inprogress', label: 'En cours' },
+              ].map(({ key, label }) => (
                 <button
-                  key={status}
-                  onClick={() => setFilter(status)}
-                  className={`px-4 py-2 text-sm font-medium rounded-full transition-all ${
-                    filter === status
-                      ? 'bg-btn-primary text-btn-primary-txt'
-                      : 'bg-card text-secondary hover:bg-border'
-                  }`}
+                  key={key}
+                  onClick={() => setFilter(key)}
+                  className={`px-3 py-1.5 text-xs font-medium rounded-lg transition-all
+                    ${filter === key
+                      ? 'bg-[var(--accent-dim)] text-[var(--accent)] border border-[rgba(56,189,248,0.3)]'
+                      : 'text-[var(--body)] border border-[var(--border)] hover:border-[var(--border-hover)]'
+                    }`}
+                  style={{ fontFamily: 'var(--font-mono)' }}
                 >
-                  {status === 'all' ? 'Tous' : status === 'deployed' ? 'Déployés' : 'En cours'}
+                  {label}
                 </button>
               ))}
             </div>
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="Rechercher..."
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                className="w-48 px-4 py-2 text-sm rounded-full bg-card text-body border-border focus:outline-none focus:ring-2 focus:ring-focus-ring"
-              />
-            </div>
+            <input
+              type="text"
+              placeholder="Rechercher..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="w-44 px-3 py-1.5 text-xs rounded-lg outline-none"
+              style={{
+                background: 'var(--bg-3)',
+                color: 'var(--title)',
+                border: '0.5px solid var(--border)',
+                fontFamily: 'var(--font-mono)',
+              }}
+            />
           </div>
         </AnimateOnScroll>
 
-        {/* Grille de projets */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {filteredProjects.map((project, index) => (
-            <AnimateOnScroll key={project.id} direction="up" delay={300 + index * 100}>
-              <div className="overflow-hidden transition-all duration-300 transform shadow-lg rounded-xl bg-card hover:scale-105">
-                <div className="relative group">
-                  <div
-                    className={`absolute top-4 right-4 z-20 px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1 ${
-                      project.deployed
-                        ? 'bg-success text-white'
-                        : 'bg-warning text-neutral-900'
-                    }`}
-                  >
-                    {project.deployed ? (
-                      <>
-                        <CheckCircle className="w-4 h-4" /> Déployé
-                      </>
-                    ) : (
-                      <>
-                        <Clock className="w-4 h-4" /> En cours
-                      </>
-                    )}
-                  </div>
-
+        {/* Grid */}
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {filtered.map((project, index) => (
+            <AnimateOnScroll key={project.id} direction="up" delay={150 + index * 80}>
+              <div className="card-terminal overflow-hidden flex flex-col group">
+                {/* Image */}
+                <div className="relative overflow-hidden h-40">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="object-cover w-full h-48 transition-transform duration-300 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-
-                  <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-300 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100">
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-[var(--bg)]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                     {project.deployed ? (
                       <a
                         href={project.demoLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center justify-center p-3 transition-colors duration-300 rounded-full bg-btn-primary hover:bg-btn-primary-hover text-btn-primary-txt"
-                        title="Voir le site déployé"
+                        className="p-2.5 rounded-full transition-colors"
+                        style={{
+                          background: 'var(--accent)',
+                          color: 'var(--bg)',
+                        }}
+                        title="Voir le site"
                       >
-                        <ExternalLink className="w-5 h-5" />
+                        <ExternalLink className="w-4 h-4" />
                       </a>
                     ) : (
-                      <button
-                        className="flex items-center justify-center p-3 text-white rounded-full cursor-not-allowed bg-neutral-400 dark:bg-neutral-700"
-                        title="Site en cours de déploiement"
-                        disabled
+                      <div
+                        className="p-2.5 rounded-full cursor-not-allowed"
+                        style={{ background: 'var(--bg-4)', color: 'var(--muted)' }}
                       >
-                        <Clock className="w-5 h-5" />
-                      </button>
+                        <Clock className="w-4 h-4" />
+                      </div>
                     )}
+                  </div>
+                  {/* Status badge */}
+                  <div className="absolute top-3 right-3">
+                    {project.deployed ? (
+                      <span
+                        className="flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium"
+                        style={{
+                          background: 'var(--green-dim)',
+                          color: 'var(--green)',
+                          border: '0.5px solid rgba(74,222,128,0.3)',
+                          fontFamily: 'var(--font-mono)',
+                        }}
+                      >
+                        <CheckCircle className="w-3 h-3" /> Déployé
+                      </span>
+                    ) : (
+                      <span
+                        className="flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium"
+                        style={{
+                          background: 'var(--amber-dim)',
+                          color: 'var(--amber)',
+                          border: '0.5px solid rgba(251,191,36,0.3)',
+                          fontFamily: 'var(--font-mono)',
+                        }}
+                      >
+                        <Clock className="w-3 h-3" /> En cours
+                      </span>
+                    )}
+                  </div>
+                  {/* Version */}
+                  <div className="absolute bottom-2 left-3">
+                    <span
+                      className="text-xs"
+                      style={{ color: 'var(--muted)', fontFamily: 'var(--font-mono)' }}
+                    >
+                      {project.version}
+                    </span>
                   </div>
                 </div>
 
-                <div className="p-6">
-                  <h3 className="mb-3 text-xl font-semibold text-title">
+                {/* Content */}
+                <div className="p-4 flex flex-col flex-1">
+                  <h3 className="mb-2 text-sm font-semibold" style={{ color: 'var(--title)' }}>
                     {project.title}
                   </h3>
-                  <p className="mb-4 text-secondary">{project.description}</p>
+                  <p className="mb-4 text-xs leading-relaxed flex-1" style={{ color: 'var(--body)' }}>
+                    {project.description}
+                  </p>
 
-                  <div className="flex flex-wrap gap-2">
+                  {/* Stack tags */}
+                  <div className="flex flex-wrap gap-1.5 mb-4">
                     {project.stack.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-3 py-1 text-sm rounded-full bg-tag-bg text-tag-txt"
-                      >
-                        {tech}
-                      </span>
+                      <span key={tech} className="skill-tag">{tech}</span>
                     ))}
                   </div>
 
-                  <div className="mt-4">
-                    {project.deployed ? (
-                      <a
-                        href={project.demoLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center gap-2 px-4 py-2 transition-all duration-300 rounded-lg active:scale-90 bg-btn-primary hover:bg-btn-primary-hover text-btn-primary-txt"
-                      >
-                        <ExternalLink className="w-4 h-4" /> Site déployé
-                      </a>
-                    ) : (
-                      <button
-                        className="flex items-center justify-center gap-2 px-4 py-2 text-white rounded-lg cursor-not-allowed bg-neutral-400 dark:bg-neutral-700 dark:text-neutral-300"
-                        disabled
-                      >
-                        <Clock className="w-4 h-4" /> En cours de déploiement
-                      </button>
-                    )}
-                  </div>
+                  {/* CTA */}
+                  {project.deployed ? (
+                    <a
+                      href={project.demoLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2 py-2 text-xs font-medium rounded-lg transition-all"
+                      style={{
+                        background: 'var(--accent-dim)',
+                        color: 'var(--accent)',
+                        border: '0.5px solid rgba(56,189,248,0.2)',
+                        fontFamily: 'var(--font-mono)',
+                      }}
+                    >
+                      <ExternalLink className="w-3 h-3" /> Voir le site
+                    </a>
+                  ) : (
+                    <div
+                      className="flex items-center justify-center gap-2 py-2 text-xs font-medium rounded-lg cursor-not-allowed"
+                      style={{
+                        background: 'var(--bg-3)',
+                        color: 'var(--muted)',
+                        fontFamily: 'var(--font-mono)',
+                      }}
+                    >
+                      <Clock className="w-3 h-3" /> En cours de déploiement
+                    </div>
+                  )}
                 </div>
               </div>
             </AnimateOnScroll>

@@ -1,11 +1,33 @@
 import React from 'react';
+import { Terminal } from 'lucide-react';
 
-const Footer = ({ isDark }) => {
+const Footer = () => {
   return (
-    <footer className={`py-8 ${isDark ? 'bg-gray-800' : 'bg-gray-900'}`}>
-      <div className="max-w-6xl px-4 mx-auto text-center sm:px-6 lg:px-8">
-        <p className="text-gray-300">
-          © 2026 RA-FANOMEZANA Herimamy Fenohasina. Tous droits réservés.
+    <footer
+      className="py-6 text-center"
+      style={{
+        background: 'var(--bg)',
+        borderTop: '0.5px solid var(--border)',
+      }}
+    >
+      <div className="max-w-5xl px-6 mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="flex items-center gap-2">
+          <Terminal className="w-3.5 h-3.5" style={{ color: 'var(--accent)' }} />
+          <span
+            className="text-xs"
+            style={{ color: 'var(--body)', fontFamily: 'var(--font-mono)' }}
+          >
+            herimamy<span style={{ color: 'var(--accent)' }}>.dev</span>
+          </span>
+        </div>
+
+        <p
+          className="text-xs"
+          style={{ color: 'var(--muted)', fontFamily: 'var(--font-mono)' }}
+        >
+          © {new Date().getFullYear()} RA-FANOMEZANA Herimamy Fenohasina
+          <span style={{ color: 'var(--accent)', marginLeft: 8 }}>·</span>
+          <span style={{ marginLeft: 8 }}>All rights reserved.</span>
         </p>
       </div>
     </footer>
@@ -13,4 +35,3 @@ const Footer = ({ isDark }) => {
 };
 
 export default Footer;
- 

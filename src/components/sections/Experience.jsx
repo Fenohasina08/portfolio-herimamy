@@ -7,61 +7,89 @@ const Experience = () => {
   const experiences = portfolioData.experiences;
 
   return (
-    <section id="expérience" className="py-20 bg-surface">
-      <div className="max-w-6xl px-4 mx-auto sm:px-6 lg:px-8">
+    <section id="experience" className="py-24" style={{ background: 'var(--about-bg)' }}>
+      <div className="max-w-5xl px-6 mx-auto">
+
+        {/* Header */}
         <AnimateOnScroll direction="up">
-          <div className="mb-16 text-center">
-            <h2 className="mb-4 text-4xl font-bold text-title">
+          <div className="mb-16">
+            <div className="section-label">// Parcours</div>
+            <h2 className="text-3xl font-bold" style={{ color: 'var(--title)', fontFamily: 'var(--font-sans)' }}>
               Mon Parcours
             </h2>
-            <div className="w-20 h-1 mx-auto bg-link"></div>
+            <div className="section-divider" />
           </div>
         </AnimateOnScroll>
 
+        {/* Timeline */}
         <div className="relative">
-          {/* Ligne centrale */}
-          <div className="absolute w-1 h-full transform -translate-x-1/2 rounded-full left-1/2 bg-link/30"></div>
+          {/* Vertical line */}
+          <div
+            className="absolute left-5 top-0 bottom-0 w-px"
+            style={{ background: 'var(--border)' }}
+          />
 
-          <div className="space-y-12">
-            {experiences.map((exp, index) => (
-              <AnimateOnScroll
-                key={exp.id}
-                direction={index % 2 === 0 ? 'left' : 'right'}
-                delay={200}
-              >
-                <div
-                  className={`flex items-center ${
-                    index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
-                  }`}
-                >
-                  <div className="flex-1">
+          <div className="space-y-8">
+            {experiences.map((exp, index) => {
+              const Icon = exp.type === 'stage' ? Briefcase : GraduationCap;
+              return (
+                <AnimateOnScroll key={exp.id} direction="right" delay={index * 150}>
+                  <div className="flex gap-6 pl-14 relative">
+                    {/* Icon node */}
                     <div
-                      className={`p-6 shadow-lg rounded-xl bg-card ${
-                        index % 2 === 0 ? 'mr-8' : 'ml-8'
-                      }`}
+                      className="absolute left-0 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
+                      style={{
+                        background: exp.type === 'stage' ? 'var(--accent-dim)' : 'var(--accent2-dim)',
+                        border: `1px solid ${exp.type === 'stage' ? 'rgba(56,189,248,0.3)' : 'rgba(167,139,250,0.3)'}`,
+                        color: exp.type === 'stage' ? 'var(--accent)' : 'var(--accent2)',
+                      }}
                     >
-                      <div className="flex items-center mb-3">
-                        {exp.type === 'stage' ? (
-                          <Briefcase className="w-6 h-6 mr-3 text-link" />
-                        ) : (
-                          <GraduationCap className="w-6 h-6 mr-3 text-link" />
-                        )}
-                        <span className="font-medium text-link">
+                      <Icon className="w-4 h-4" />
+                    </div>
+
+                    {/* Card */}
+                    <div className="card-terminal p-5 flex-1">
+                      {/* Header */}
+                      <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
+                        <div>
+                          <h3 className="text-base font-semibold" style={{ color: 'var(--title)' }}>
+                            {exp.title}
+                          </h3>
+                          <span
+                            className="text-xs"
+                            style={{ color: 'var(--body)', fontFamily: 'var(--font-mono)' }}
+                          >
+                            {exp.company}
+                          </span>
+                        </div>
+                        <span
+                          className="px-2 py-0.5 rounded text-xs flex-shrink-0"
+                          style={{
+                            background: 'var(--bg-3)',
+                            color: 'var(--accent)',
+                            fontFamily: 'var(--font-mono)',
+                            border: '0.5px solid var(--border)',
+                          }}
+                        >
                           {exp.period}
                         </span>
                       </div>
-                      <h3 className="mb-3 text-xl font-semibold text-title">
-                        {exp.title}
-                      </h3>
-                      <p className="text-secondary">{exp.description}</p>
+
+                      <p className="mb-4 text-sm leading-relaxed" style={{ color: 'var(--body)' }}>
+                        {exp.description}
+                      </p>
+
+                      {/* Tags */}
+                      <div className="flex flex-wrap gap-1.5">
+                        {exp.tags.map((tag) => (
+                          <span key={tag} className="skill-tag">{tag}</span>
+                        ))}
+                      </div>
                     </div>
                   </div>
-
-                  <div className="relative z-10 flex items-center justify-center w-4 h-4 rounded-full bg-link ring-4 ring-surface"></div>
-                  <div className="flex-1"></div>
-                </div>
-              </AnimateOnScroll>
-            ))}
+                </AnimateOnScroll>
+              );
+            })}
           </div>
         </div>
       </div>
