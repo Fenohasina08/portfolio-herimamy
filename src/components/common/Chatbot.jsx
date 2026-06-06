@@ -17,7 +17,7 @@ const Chatbot = () => {
 
   const handleDownloadCV = () => {
     const link = document.createElement('a');
-    link.href = '/cv-feno.pdf';
+    link.href = '/Herimamy.pdf';
     link.download = `CV_Herimamy_Fenohasina_${new Date().getFullYear()}.pdf`;
     document.body.appendChild(link);
     link.click();
@@ -114,7 +114,7 @@ const Chatbot = () => {
         <button
           key={p.id}
           onClick={() => handleProjectSelect(p)}
-          className="flex items-center justify-between w-full p-3 text-left rounded-lg transition-all"
+          className="flex items-center justify-between w-full p-3 text-left transition-all rounded-lg"
           style={{
             background: 'var(--bg-3)',
             border: '0.5px solid var(--border)',
@@ -155,10 +155,10 @@ const Chatbot = () => {
               {selectedProject.deployed ? 'Déployé' : 'En cours'}
             </span>
           </div>
-          <p className="text-xs mb-3" style={{ color: 'var(--body)' }}>{selectedProject.description}</p>
+          <p className="mb-3 text-xs" style={{ color: 'var(--body)' }}>{selectedProject.description}</p>
           <div className="flex flex-wrap gap-1 mb-3">
             {selectedProject.stack.map((t) => (
-              <span key={t} className="skill-tag text-xs">{t}</span>
+              <span key={t} className="text-xs skill-tag">{t}</span>
             ))}
           </div>
           {selectedProject.deployed && selectedProject.demoLink !== '#' && (
@@ -184,12 +184,12 @@ const Chatbot = () => {
     <div className="mt-3 space-y-3">
       {portfolioData.skills.categories.map((cat) => (
         <div key={cat.title} className="p-3 rounded-lg" style={{ background: 'var(--bg-3)', border: '0.5px solid var(--border)' }}>
-          <h4 className="text-xs font-bold mb-2" style={{ color: 'var(--title)', fontFamily: 'var(--font-mono)' }}>
+          <h4 className="mb-2 text-xs font-bold" style={{ color: 'var(--title)', fontFamily: 'var(--font-mono)' }}>
             {cat.title}
           </h4>
           <div className="flex flex-wrap gap-1">
             {cat.skills.map((s) => (
-              <span key={s.name} className="skill-tag text-xs">{s.name}</span>
+              <span key={s.name} className="text-xs skill-tag">{s.name}</span>
             ))}
           </div>
         </div>
@@ -210,7 +210,7 @@ const Chatbot = () => {
                 {exp.title}
               </span>
             </div>
-            <div className="text-xs mb-1" style={{ color: 'var(--accent)', fontFamily: 'var(--font-mono)' }}>
+            <div className="mb-1 text-xs" style={{ color: 'var(--accent)', fontFamily: 'var(--font-mono)' }}>
               {exp.period}
             </div>
             <p className="text-xs" style={{ color: 'var(--body)' }}>{exp.description}</p>
@@ -237,7 +237,7 @@ const Chatbot = () => {
       </div>
       <button
         onClick={() => window.location.href = `mailto:${portfolioData.personal.email}`}
-        className="w-full py-2 text-xs font-medium rounded-lg transition-all"
+        className="w-full py-2 text-xs font-medium transition-all rounded-lg"
         style={{ background: 'var(--accent)', color: 'var(--bg)', fontFamily: 'var(--font-mono)' }}
       >
         ✉ Envoyer un email
@@ -251,7 +251,7 @@ const Chatbot = () => {
     return (
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed z-50 flex items-center justify-center rounded-full shadow-lg bottom-6 right-6 w-12 h-12 transition-all duration-300 hover:scale-110"
+        className="fixed z-50 flex items-center justify-center w-12 h-12 transition-all duration-300 rounded-full shadow-lg bottom-6 right-6 hover:scale-110"
         style={{ background: 'var(--accent)', color: 'var(--bg)' }}
         aria-label="Ouvrir le chatbot"
       >
@@ -271,7 +271,7 @@ const Chatbot = () => {
     >
       {/* Header */}
       <div
-        className="p-3 flex items-center justify-between"
+        className="flex items-center justify-between p-3"
         style={{ background: 'var(--bg)', borderBottom: '0.5px solid var(--border)' }}
       >
         <div className="flex items-center gap-2">
@@ -288,7 +288,7 @@ const Chatbot = () => {
         </div>
         <button
           onClick={() => setIsOpen(false)}
-          className="p-1 rounded transition-colors"
+          className="p-1 transition-colors rounded"
           style={{ color: 'var(--muted)' }}
           onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--title)'; }}
           onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--muted)'; }}
@@ -312,7 +312,7 @@ const Chatbot = () => {
             >
               {msg.text}
             </div>
-            <div className="text-xs mt-1 opacity-40" style={{ color: 'var(--muted)', fontFamily: 'var(--font-mono)' }}>
+            <div className="mt-1 text-xs opacity-40" style={{ color: 'var(--muted)', fontFamily: 'var(--font-mono)' }}>
               {msg.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
             </div>
           </div>
@@ -333,7 +333,7 @@ const Chatbot = () => {
 
       {/* Footer bar */}
       <div
-        className="p-2 flex justify-between"
+        className="flex justify-between p-2"
         style={{ background: 'var(--bg)', borderTop: '0.5px solid var(--border)' }}
       >
         {btn('🏠 Menu', showWelcomeButtons)}
