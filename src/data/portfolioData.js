@@ -11,9 +11,6 @@ export const portfolioData = {
     linkedin: "https://www.linkedin.com/in/herimamy-fenohasina-ra-fanomezana-40370a386/",
   },
 
-<<<<<<< HEAD
-   about: {
-=======
   stats: [
     { label: "Projets déployés",   value: "3+",  icon: "Rocket" },
     { label: "Technologies",        value: "11",  icon: "Code" },
@@ -29,7 +26,6 @@ export const portfolioData = {
   ],
 
   about: {
->>>>>>> preprod
     title: "À propos de moi",
     description:
       "Étudiant en 2ème année Informatique à la Haute École de l'Informatique d'Ivandry, je construis des interfaces web modernes avec React, TypeScript et TailwindCSS. Mon approche : itérer vite, apprendre en faisant, livrer du concret.",
@@ -41,11 +37,7 @@ export const portfolioData = {
     image: "/feno.png",
   },
 
-<<<<<<< HEAD
-   experiences: [
-=======
   experiences: [
->>>>>>> preprod
     {
       id: "exp-1",
       title: "Stage — Direction des Systèmes d'Information",
@@ -68,11 +60,7 @@ export const portfolioData = {
     },
   ],
 
-<<<<<<< HEAD
-   projects: [
-=======
   projects: [
->>>>>>> preprod
     {
       id: "proj-1",
       title: "Site restaurant sushi",
@@ -111,11 +99,7 @@ export const portfolioData = {
     },
   ],
 
-<<<<<<< HEAD
-   skills: {
-=======
   skills: {
->>>>>>> preprod
     categories: [
       {
         title: "Langages",
@@ -143,16 +127,10 @@ export const portfolioData = {
     ],
   },
 
-<<<<<<< HEAD
-   contact: {
-    title: "Contactez-moi",
-    emailText: "Cliquez sur le bouton ci-dessous pour m'envoyer un email directement. Votre client de messagerie s'ouvrira avec mon adresse pré-remplie.",
-=======
   contact: {
     title: "Contact",
     emailText:
       "Disponible pour une alternance, un stage ou une collaboration. Écrivez-moi directement.",
->>>>>>> preprod
     socialLinks: [
       { platform: "GitHub",   url: "https://github.com/Fenohasina08",                                                         icon: "Github" },
       { platform: "LinkedIn", url: "https://www.linkedin.com/in/herimamy-fenohasina-ra-fanomezana-40370a386/",               icon: "Linkedin" },
@@ -160,14 +138,9 @@ export const portfolioData = {
     ],
   },
 
-<<<<<<< HEAD
-     chatbot: {
-    greeting: "Bonjour, je suis l'assistant de ce portfolio. Je peux vous présenter le travail et les compétences de Herimamy.",
-=======
   chatbot: {
     greeting:
       "Salut ! Je suis l'assistant de ce portfolio. Que voulez-vous savoir sur Herimamy ?",
->>>>>>> preprod
     welcomeButtons: ["Mes projets", "Mes compétences", "Mon parcours", "À propos", "Contact", "Télécharger CV"],
     openingDelay: 3500,
   },
