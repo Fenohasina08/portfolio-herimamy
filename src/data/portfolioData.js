@@ -11,12 +11,12 @@ export const portfolioData = {
     linkedin: "https://www.linkedin.com/in/herimamy-fenohasina-ra-fanomezana-40370a386/",
   },
 
-  stats: [
-    { label: "Projets déployés",   value: "3+",  icon: "Rocket" },
-    { label: "Technologies",        value: "11",  icon: "Code" },
-    { label: "Années d'étude",      value: "2",   icon: "GraduationCap" },
-    { label: "Commits GitHub",      value: "150+",icon: "GitBranch" },
-  ],
+  // Stats calculées dynamiquement dans Hero.jsx via computeStats()
+  // Seules les valeurs non-calculables restent ici
+  staticStats: {
+    yearsStudy: 2,
+    githubCommits: "150+",
+  },
 
   xpBars: [
     { label: "Frontend XP",   value: 80 },
@@ -122,6 +122,7 @@ export const portfolioData = {
           { name: "TypeScript",  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", level: 40 },
           { name: "Java",        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",             level: 60 },
           { name: "PostgreSQL",  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg", level: 45 },
+          { name: "NextJs",      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",           level: 60 }
         ],
       },
       {
@@ -148,7 +149,7 @@ export const portfolioData = {
     ],
   },
 
-   certifications: [
+  certifications: [
     {
       id: "cert-1",
       title: "Responsive Web Design",
@@ -204,7 +205,7 @@ export const portfolioData = {
       url: "#",
     },
   ],
- 
+
   chatbot: {
     greeting:
       "Salut ! Je suis l'assistant de ce portfolio. Que voulez-vous savoir sur Herimamy ?",
