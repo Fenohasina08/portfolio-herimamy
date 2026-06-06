@@ -1,115 +1,231 @@
-import React from 'react';
-import { ChevronDown } from 'lucide-react';
-import Particles from 'react-tsparticles';
-import { loadSlim } from 'tsparticles-slim';
+import React, { useState, useEffect } from 'react';
+import { ChevronDown, Rocket, Code, GraduationCap, GitBranch } from 'lucide-react';
+import { portfolioData } from '../../data/portfolioData';
 
-const Hero = ({ isDark }) => {
-  const particlesInit = async (engine) => {
-    await loadSlim(engine);
-  };
+const iconMap = { Rocket, Code, GraduationCap, GitBranch };
 
-  // Couleurs issues de la palette (synchronisées avec index.css)
-  const particlesOptions = {
-    background: {
-      color: {
-        value: isDark ? '#0f0d0a' : '#fafaf9', // --color-bg en dark / light
-      },
-    },
-    fpsLimit: 120,
-    interactivity: {
-      events: {
-        onClick: { enable: true, mode: 'push' },
-        onHover: { enable: true, mode: 'repulse' },
-      },
-      modes: {
-        push: { quantity: 4 },
-        repulse: { distance: 200, duration: 0.4 },
-      },
-    },
-    particles: {
-      color: {
-        value: isDark ? '#ea580c' : '#f97316', // primary-500 / primary-400
-      },
-      links: {
-        color: isDark ? '#ea580c' : '#f97316',
-        distance: 150,
-        enable: true,
-        opacity: 0.3,
-        width: 1,
-      },
-      move: {
-        direction: 'none',
-        enable: true,
-        outModes: { default: 'bounce' },
-        random: false,
-        speed: 1.5,
-        straight: false,
-      },
-      number: {
-        density: { enable: true, area: 800 },
-        value: 80,
-      },
-      opacity: { value: 0.3 },
-      shape: { type: 'circle' },
-      size: { value: { min: 1, max: 5 } },
-    },
-    detectRetina: true,
-  };
+const Hero = () => {
+  const [mounted, setMounted] = useState(false);
+  const [xpVisible, setXpVisible] = useState(false);
+
+  useEffect(() => {
+    const t1 = setTimeout(() => setMounted(true), 100);
+    const t2 = setTimeout(() => setXpVisible(true), 800);
+    return () => { clearTimeout(t1); clearTimeout(t2); };
+  }, []);
 
   return (
-    <section id="accueil" className="relative flex items-center justify-center min-h-screen overflow-hidden">
-      <Particles
-        id="tsparticles"
-        init={particlesInit}
-        options={particlesOptions}
-        className="absolute inset-0"
+    <section
+      id="accueil"
+      className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden"
+      style={{ background: 'var(--bg)' }}
+    >
+      {/* Grid background */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(56,189,248,0.04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(56,189,248,0.04) 1px, transparent 1px)
+          `,
+          backgroundSize: '48px 48px',
+        }}
       />
 
-      <div className="z-10 px-4 text-center">
-        <div className="animate-fadeIn">
-          {/* Titre principal : utilise la couleur de titre sémantique */}
-          <h1 className="mb-6 text-5xl font-bold md:text-7xl text-title">
-            RA-FANOMEZANA
-            <br />
-            {/* Le nom en couleur "link" (primaire) */}
-            <span className="text-link">Herimamy Fenohasina</span>
-          </h1>
+      {/* Glow blobs */}
+      <div
+        className="absolute -translate-x-1/2 rounded-full pointer-events-none top-1/4 left-1/2 w-96 h-96"
+        style={{ background: 'radial-gradient(circle, rgba(56,189,248,0.06) 0%, transparent 70%)' }}
+      />
+      <div
+        className="absolute w-64 h-64 rounded-full pointer-events-none bottom-1/4 right-1/4"
+        style={{ background: 'radial-gradient(circle, rgba(167,139,250,0.05) 0%, transparent 70%)' }}
+      />
 
-          {/* Sous-titre : couleur secondaire */}
-          <h2 className="mb-8 text-xl md:text-2xl text-secondary">
-            Développeur Web
-          </h2>
+      <div className="relative z-10 w-full max-w-5xl px-6 mx-auto">
+        <div className="grid items-center gap-12 lg:grid-cols-5">
 
-          {/* Phrase d'accroche */}
-          <p className="max-w-2xl mx-auto mb-12 text-lg text-secondary">
-            "Passionné par le développement web et la création de solutions modernes."
-          </p>
-
-          {/* Boutons */}
-          <div className="flex flex-col justify-center gap-4 sm:flex-row">
-            {/* Bouton primaire */}
-            <a
-              href="#projets"
-              className="px-8 py-3 transition-all duration-300 transform rounded-full shadow-lg hover:scale-105 bg-btn-primary text-btn-primary-txt hover:bg-btn-primary-hover"
+          {/* Left — main content */}
+          <div className="lg:col-span-3">
+            {/* Status badge */}
+            <div
+              className={`mb-6 transition-all duration-500 ${mounted ? 'opacity-100' : 'opacity-0 -translate-y-2'}`}
             >
-              Voir mes projets
-            </a>
+              <span className="badge-running" style={{ fontFamily: 'var(--font-mono)' }}>
+                Disponible — Alternance 2025
+              </span>
+            </div>
 
-            {/* Bouton outline */}
-            <a
-              href="#contact"
-              className="px-8 py-3 transition-all duration-300 transform border-2 rounded-full hover:scale-105 bg-btn-outline text-btn-outline-txt border-btn-outline-border hover:bg-btn-primary hover:text-btn-primary-txt hover:border-btn-primary"
+            {/* Name */}
+            <div
+              className={`transition-all duration-700 delay-100 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
             >
-              Me contacter
-            </a>
+              <div
+                className="mb-1 text-xs tracking-widest uppercase"
+                style={{ color: 'var(--accent)', fontFamily: 'var(--font-mono)' }}
+              >
+                // player_profile
+              </div>
+              <h1
+                className="mb-2 font-bold leading-tight"
+                style={{ color: 'var(--title)', fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontFamily: 'var(--font-sans)' }}
+              >
+                RA-FANOMEZANA
+                <br />
+                <span style={{ color: 'var(--accent)' }}>Herimamy</span>
+              </h1>
+              <p
+                className="mb-6 text-lg font-medium"
+                style={{ color: 'var(--body)', fontFamily: 'var(--font-mono)' }}
+              >
+                {portfolioData.personal.role}
+              </p>
+              <p className="max-w-lg mb-8 text-sm leading-relaxed" style={{ color: 'var(--body)' }}>
+                {portfolioData.personal.tagline}
+              </p>
+            </div>
+
+            {/* CTA buttons */}
+            <div
+              className={`flex flex-wrap gap-3 mb-10 transition-all duration-700 delay-300 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+            >
+              <a
+                href="#projets"
+                className="px-5 py-2.5 text-sm font-medium rounded-lg transition-all duration-200
+                  border border-[var(--accent)] text-[var(--bg)] bg-[var(--accent)]
+                  hover:opacity-90 hover:scale-105 active:scale-95"
+                style={{ fontFamily: 'var(--font-mono)' }}
+              >
+                Voir mes projets →
+              </a>
+              <a
+                href="#contact"
+                className="px-5 py-2.5 text-sm font-medium rounded-lg transition-all duration-200
+                  border border-[var(--border-hover)] text-[var(--body)]
+                  hover:border-[var(--accent)] hover:text-[var(--accent)] hover:bg-[var(--accent-dim)]"
+                style={{ fontFamily: 'var(--font-mono)' }}
+              >
+                Me contacter
+              </a>
+            </div>
+
+            {/* Stat row */}
+            <div
+              className={`grid grid-cols-2 sm:grid-cols-4 gap-3 transition-all duration-700 delay-500 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+            >
+              {portfolioData.stats.map(({ label, value, icon }) => {
+                const Icon = iconMap[icon];
+                return (
+                  <div
+                    key={label}
+                    className="flex flex-col gap-1 p-3 card-terminal"
+                  >
+                    <div className="flex items-center gap-1.5" style={{ color: 'var(--accent)', opacity: 0.7 }}>
+                      {Icon && <Icon className="w-3 h-3" />}
+                      <span className="text-xs" style={{ fontFamily: 'var(--font-mono)', color: 'var(--body)' }}>{label}</span>
+                    </div>
+                    <span
+                      className="text-xl font-bold"
+                      style={{ color: 'var(--title)', fontFamily: 'var(--font-mono)' }}
+                    >
+                      {value}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Right — player card */}
+          <div
+            className={`lg:col-span-2 transition-all duration-700 delay-400 ${mounted ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}
+          >
+            <div className="p-5 card-terminal">
+              {/* Card header */}
+              <div
+                className="flex items-center justify-between pb-3 mb-4"
+                style={{ borderBottom: '0.5px solid var(--border)' }}
+              >
+                <span className="text-xs" style={{ color: 'var(--muted)', fontFamily: 'var(--font-mono)' }}>
+                  player_card.json
+                </span>
+                <span className="text-xs badge-running">Online</span>
+              </div>
+
+              {/* Avatar */}
+              <div className="flex items-center gap-3 mb-5">
+                <div
+                  className="flex items-center justify-center w-12 h-12 overflow-hidden rounded-full"
+                  style={{ border: '2px solid var(--accent)', background: 'var(--accent-dim)' }}
+                >
+                  <img
+                    src={portfolioData.about.image}
+                    alt={portfolioData.personal.name}
+                    className="object-cover w-full h-full"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.parentElement.innerHTML = '<span style="font-family:var(--font-mono);font-size:18px;font-weight:700;color:var(--accent)">H</span>';
+                    }}
+                  />
+                </div>
+                <div>
+                  <div className="text-sm font-semibold" style={{ color: 'var(--title)' }}>
+                    Herimamy F.
+                  </div>
+                  <div className="text-xs" style={{ color: 'var(--body)', fontFamily: 'var(--font-mono)' }}>
+                    Web Developer
+                  </div>
+                </div>
+              </div>
+
+              {/* XP Bars */}
+              <div className="space-y-3">
+                {portfolioData.xpBars.map(({ label, value }) => (
+                  <div key={label}>
+                    <div className="flex justify-between mb-1">
+                      <span className="text-xs" style={{ color: 'var(--body)', fontFamily: 'var(--font-mono)' }}>
+                        {label}
+                      </span>
+                      <span className="text-xs" style={{ color: 'var(--accent)', fontFamily: 'var(--font-mono)' }}>
+                        {xpVisible ? value : 0}/{100} XP
+                      </span>
+                    </div>
+                    <div className="xp-bar">
+                      <div
+                        className="xp-bar-fill"
+                        style={{ width: xpVisible ? `${value}%` : '0%' }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Location */}
+              <div
+                className="flex items-center gap-2 pt-3 mt-4"
+                style={{ borderTop: '0.5px solid var(--border)' }}
+              >
+                <span className="text-xs" style={{ color: 'var(--muted)', fontFamily: 'var(--font-mono)' }}>
+                  region:
+                </span>
+                <span className="text-xs" style={{ color: 'var(--body)', fontFamily: 'var(--font-mono)' }}>
+                  Antananarivo, MG
+                </span>
+              </div>
+            </div>
           </div>
         </div>
-
-        {/* Icône ChevronDown */}
-        <div className="absolute transform -translate-x-1/2 bottom-8 left-1/2 animate-bounce">
-          <ChevronDown className="w-8 h-8 text-secondary" />
-        </div>
       </div>
+
+      {/* Scroll indicator */}
+      <a
+        href="#propos"
+        className="absolute flex flex-col items-center gap-1 -translate-x-1/2 bottom-8 left-1/2 animate-bounce"
+        style={{ color: 'var(--muted)' }}
+        aria-label="Défiler vers le bas"
+      >
+        <ChevronDown className="w-5 h-5" />
+      </a>
     </section>
   );
 };
