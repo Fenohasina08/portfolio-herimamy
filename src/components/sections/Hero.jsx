@@ -14,6 +14,47 @@ const Hero = () => {
     return () => { clearTimeout(t1); clearTimeout(t2); };
   }, []);
 
+  // ============================
+  // STATS DYNAMIQUES
+  // ============================
+  const projectsCount = portfolioData.projects?.length || 0;
+
+  const technologiesCount = new Set(
+    (portfolioData.skills?.categories || []).flatMap(category =>
+      (category.skills || []).map(skill => skill.name)
+    )
+  ).size;
+
+  const experiencesCount = portfolioData.experiences?.length || 0;
+
+  const certificationsCount =
+    (portfolioData.certifications || []).filter(
+      cert => cert.status === "obtained"
+    ).length;
+
+  const stats = [
+    {
+      label: "Projets",
+      value: projectsCount,
+      icon: "Rocket",
+    },
+    {
+      label: "Technos",
+      value: technologiesCount,
+      icon: "Code",
+    },
+    {
+      label: "Expériences",
+      value: experiencesCount,
+      icon: "GraduationCap",
+    },
+    {
+      label: "Certifs",
+      value: certificationsCount,
+      icon: "GitBranch",
+    },
+  ];
+
   return (
     <section
       id="accueil"
@@ -21,8 +62,7 @@ const Hero = () => {
       style={{ background: 'var(--bg)' }}
     >
       {/* Grid background */}
-      <div
-        className="absolute inset-0 pointer-events-none"
+      <div className="absolute inset-0 pointer-events-none"
         style={{
           backgroundImage: `
             linear-gradient(rgba(56,189,248,0.04) 1px, transparent 1px),
@@ -33,198 +73,98 @@ const Hero = () => {
       />
 
       {/* Glow blobs */}
-      <div
-        className="absolute -translate-x-1/2 rounded-full pointer-events-none top-1/4 left-1/2 w-96 h-96"
+      <div className="absolute -translate-x-1/2 rounded-full pointer-events-none top-1/4 left-1/2 w-96 h-96"
         style={{ background: 'radial-gradient(circle, rgba(56,189,248,0.06) 0%, transparent 70%)' }}
       />
-      <div
-        className="absolute w-64 h-64 rounded-full pointer-events-none bottom-1/4 right-1/4"
+      <div className="absolute w-64 h-64 rounded-full pointer-events-none bottom-1/4 right-1/4"
         style={{ background: 'radial-gradient(circle, rgba(167,139,250,0.05) 0%, transparent 70%)' }}
       />
 
       <div className="relative z-10 w-full max-w-5xl px-6 mx-auto">
         <div className="grid items-center gap-12 lg:grid-cols-5">
 
-          {/* Left — main content */}
+          {/* LEFT */}
           <div className="lg:col-span-3">
-            {/* Status badge */}
-            <div
-              className={`mb-6 transition-all duration-500 ${mounted ? 'opacity-100' : 'opacity-0 -translate-y-2'}`}
-            >
+
+            <div className={`mb-6 transition-all duration-500 ${mounted ? 'opacity-100' : 'opacity-0 -translate-y-2'}`}>
               <span className="badge-running" style={{ fontFamily: 'var(--font-mono)' }}>
                 Disponible — Alternance 2025
               </span>
             </div>
 
-            {/* Name */}
-            <div
-              className={`transition-all duration-700 delay-100 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+            <h1 className="mb-2 font-bold leading-tight"
+              style={{ color: 'var(--title)', fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}
             >
-              <div
-                className="mb-1 text-xs tracking-widest uppercase"
-                style={{ color: 'var(--accent)', fontFamily: 'var(--font-mono)' }}
-              >
-                // player_profile
-              </div>
-              <h1
-                className="mb-2 font-bold leading-tight"
-                style={{ color: 'var(--title)', fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontFamily: 'var(--font-sans)' }}
-              >
-                RA-FANOMEZANA
-                <br />
-                <span style={{ color: 'var(--accent)' }}>Herimamy</span>
-              </h1>
-              <p
-                className="mb-6 text-lg font-medium"
-                style={{ color: 'var(--body)', fontFamily: 'var(--font-mono)' }}
-              >
-                {portfolioData.personal.role}
-              </p>
-              <p className="max-w-lg mb-8 text-sm leading-relaxed" style={{ color: 'var(--body)' }}>
-                {portfolioData.personal.tagline}
-              </p>
-            </div>
+              RA-FANOMEZANA
+              <br />
+              <span style={{ color: 'var(--accent)' }}>Herimamy</span>
+            </h1>
 
-            {/* CTA buttons */}
-            <div
-              className={`flex flex-wrap gap-3 mb-10 transition-all duration-700 delay-300 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-            >
-              <a
-                href="#projets"
-                className="px-5 py-2.5 text-sm font-medium rounded-lg transition-all duration-200
-                  border border-[var(--accent)] text-[var(--bg)] bg-[var(--accent)]
-                  hover:opacity-90 hover:scale-105 active:scale-95"
-                style={{ fontFamily: 'var(--font-mono)' }}
-              >
-                Voir mes projets →
-              </a>
-              <a
-                href="#contact"
-                className="px-5 py-2.5 text-sm font-medium rounded-lg transition-all duration-200
-                  border border-[var(--border-hover)] text-[var(--body)]
-                  hover:border-[var(--accent)] hover:text-[var(--accent)] hover:bg-[var(--accent-dim)]"
-                style={{ fontFamily: 'var(--font-mono)' }}
-              >
-                Me contacter
-              </a>
-            </div>
+            <p className="mb-6 text-lg font-medium">
+              {portfolioData.personal.role}
+            </p>
 
-            {/* Stat row */}
-            <div
-              className={`grid grid-cols-2 sm:grid-cols-4 gap-3 transition-all duration-700 delay-500 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-            >
-              {portfolioData.stats.map(({ label, value, icon }) => {
+            <p className="max-w-lg mb-8 text-sm">
+              {portfolioData.personal.tagline}
+            </p>
+
+            {/* STATS */}
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+              {stats.map(({ label, value, icon }) => {
                 const Icon = iconMap[icon];
+
                 return (
-                  <div
-                    key={label}
-                    className="flex flex-col gap-1 p-3 card-terminal"
-                  >
-                    <div className="flex items-center gap-1.5" style={{ color: 'var(--accent)', opacity: 0.7 }}>
+                  <div key={label} className="flex flex-col gap-1 p-3 card-terminal">
+
+                    <div className="flex items-center gap-1.5">
                       {Icon && <Icon className="w-3 h-3" />}
-                      <span className="text-xs" style={{ fontFamily: 'var(--font-mono)', color: 'var(--body)' }}>{label}</span>
+                      <span className="text-xs">{label}</span>
                     </div>
-                    <span
-                      className="text-xl font-bold"
-                      style={{ color: 'var(--title)', fontFamily: 'var(--font-mono)' }}
-                    >
+
+                    <span className="text-xl font-bold">
                       {value}
                     </span>
+
                   </div>
                 );
               })}
             </div>
+
           </div>
 
-          {/* Right — player card */}
-          <div
-            className={`lg:col-span-2 transition-all duration-700 delay-400 ${mounted ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}
-          >
+          {/* RIGHT (inchangé sauf simplification) */}
+          <div className="lg:col-span-2">
             <div className="p-5 card-terminal">
-              {/* Card header */}
-              <div
-                className="flex items-center justify-between pb-3 mb-4"
-                style={{ borderBottom: '0.5px solid var(--border)' }}
-              >
-                <span className="text-xs" style={{ color: 'var(--muted)', fontFamily: 'var(--font-mono)' }}>
-                  player_card.json
-                </span>
-                <span className="text-xs badge-running">Online</span>
-              </div>
 
-              {/* Avatar */}
-              <div className="flex items-center gap-3 mb-5">
-                <div
-                  className="flex items-center justify-center w-12 h-12 overflow-hidden rounded-full"
-                  style={{ border: '2px solid var(--accent)', background: 'var(--accent-dim)' }}
-                >
-                  <img
-                    src={portfolioData.about.image}
-                    alt={portfolioData.personal.name}
-                    className="object-cover w-full h-full"
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                      e.target.parentElement.innerHTML = '<span style="font-family:var(--font-mono);font-size:18px;font-weight:700;color:var(--accent)">H</span>';
-                    }}
-                  />
-                </div>
-                <div>
-                  <div className="text-sm font-semibold" style={{ color: 'var(--title)' }}>
-                    Herimamy F.
-                  </div>
-                  <div className="text-xs" style={{ color: 'var(--body)', fontFamily: 'var(--font-mono)' }}>
-                    Web Developer
-                  </div>
-                </div>
-              </div>
+              <img
+                src={portfolioData.about.image}
+                alt={portfolioData.personal.name}
+                className="w-12 h-12 rounded-full"
+              />
 
-              {/* XP Bars */}
               <div className="space-y-3">
                 {portfolioData.xpBars.map(({ label, value }) => (
                   <div key={label}>
-                    <div className="flex justify-between mb-1">
-                      <span className="text-xs" style={{ color: 'var(--body)', fontFamily: 'var(--font-mono)' }}>
-                        {label}
-                      </span>
-                      <span className="text-xs" style={{ color: 'var(--accent)', fontFamily: 'var(--font-mono)' }}>
-                        {xpVisible ? value : 0}/{100} XP
-                      </span>
+                    <div className="flex justify-between">
+                      <span>{label}</span>
+                      <span>{xpVisible ? value : 0}/100</span>
                     </div>
+
                     <div className="xp-bar">
-                      <div
-                        className="xp-bar-fill"
-                        style={{ width: xpVisible ? `${value}%` : '0%' }}
-                      />
+                      <div style={{ width: xpVisible ? `${value}%` : '0%' }} />
                     </div>
                   </div>
                 ))}
               </div>
 
-              {/* Location */}
-              <div
-                className="flex items-center gap-2 pt-3 mt-4"
-                style={{ borderTop: '0.5px solid var(--border)' }}
-              >
-                <span className="text-xs" style={{ color: 'var(--muted)', fontFamily: 'var(--font-mono)' }}>
-                  region:
-                </span>
-                <span className="text-xs" style={{ color: 'var(--body)', fontFamily: 'var(--font-mono)' }}>
-                  Antananarivo, MG
-                </span>
-              </div>
             </div>
           </div>
+
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <a
-        href="#propos"
-        className="absolute flex flex-col items-center gap-1 -translate-x-1/2 bottom-8 left-1/2 animate-bounce"
-        style={{ color: 'var(--muted)' }}
-        aria-label="Défiler vers le bas"
-      >
-        <ChevronDown className="w-5 h-5" />
+      <a href="#propos" className="absolute bottom-8 left-1/2">
+        <ChevronDown />
       </a>
     </section>
   );
