@@ -88,7 +88,7 @@ const Hero = () => {
 
             <div className={`mb-6 transition-all duration-500 ${mounted ? 'opacity-100' : 'opacity-0 -translate-y-2'}`}>
               <span className="badge-running" style={{ fontFamily: 'var(--font-mono)' }}>
-                Disponible — Alternance 2025
+                Disponible — Alternance 2026
               </span>
             </div>
 
