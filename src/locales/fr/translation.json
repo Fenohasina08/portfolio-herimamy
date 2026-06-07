@@ -1,0 +1,33 @@
+{
+  "hero": {
+    "available": "Disponible — Alternance 2026",
+
+    "stats": {
+      "projects": "Projets",
+      "technologies": "Technos",
+      "experiences": "Expériences",
+      "certifications": "Certifs"
+    }
+  },
+
+  "personal": {
+    "role": "Développeur Web",
+    "tagline": "Passionné par le développement web et les technologies modernes"
+  },
+
+  "xp": {
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "tools": "Outils",
+    "database": "Base de données"
+  },
+
+  "navbar": {
+    "home": "Accueil",
+    "about": "À propos",
+    "skills": "Compétences",
+    "projects": "Projets",
+    "experience": "Expérience",
+    "contact": "Contact"
+  }
+}

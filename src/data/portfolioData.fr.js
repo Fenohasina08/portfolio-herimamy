@@ -1,9 +1,9 @@
-export const portfolioData = {
+export const portfolioDataFr = {
   personal: {
     name: "Herimamy Fenohasina",
     shortName: "Herimamy",
-    role: "personal.role",
-    tagline: "personal.tagline",
+    role: "Développeur Web",
+    tagline: "Étudiant en informatique passionné par le développement web moderne. Je construis des interfaces rapides, propres et accessibles.",
     location: "Antananarivo, Madagascar",
     email: "fenohasinaherimamy@gmail.com",
     phone: "+261 32 87 023 38",
@@ -11,18 +11,16 @@ export const portfolioData = {
     linkedin: "https://www.linkedin.com/in/herimamy-fenohasina-ra-fanomezana-40370a386/",
   },
 
-  // Stats calculées dynamiquement dans Hero.jsx via computeStats()
-  // Seules les valeurs non-calculables restent ici
   staticStats: {
     yearsStudy: 2,
     githubCommits: "150+",
   },
 
   xpBars: [
-    { label: "xp.frontend",   value: 80 },
-    { label: "xp.react",   value: 65 },
-    { label: "xp.backend",    value: 45 },
-    { label: "xp.uiux",      value: 60 },
+    { label: "Frontend",  value: 80 },
+    { label: "React",     value: 65 },
+    { label: "Backend",   value: 45 },
+    { label: "UI / UX",   value: 60 },
   ],
 
   about: {
@@ -48,18 +46,18 @@ export const portfolioData = {
       type: "stage",
       tags: ["HTML", "CSS", "JavaScript"],
     },
-     {
+    {
       id: "exp-2",
       title: "Année Préparatoire Informatique",
       company: "ONG Passerelles Numériques Madagasikara",
       period: "2024",
       description:
-        "Développement de projets web en HTML, CSS et JavaScript. Participation à la gestion de projet et à la conception d’interfaces utilisateur fonctionnelles.",
+        "Développement de projets web en HTML, CSS et JavaScript. Participation à la gestion de projet et à la conception d'interfaces utilisateur fonctionnelles.",
       type: "stage",
       tags: ["HTML", "CSS", "JavaScript"],
     },
     {
-      id: "exp-2",
+      id: "exp-3",
       title: "2ème année Informatique",
       company: "Haute École de l'Informatique d'Ivandry",
       period: "2024 – 2025",
@@ -115,21 +113,21 @@ export const portfolioData = {
         title: "Langages",
         icon: "Code2",
         skills: [
-          { name: "HTML",        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",           level: 90 },
-          { name: "CSS",         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",             level: 85 },
-          { name: "JavaScript",  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", level: 75 },
-          { name: "React",       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",           level: 70 },
-          { name: "TypeScript",  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", level: 40 },
-          { name: "Java",        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",             level: 60 },
-          { name: "PostgreSQL",  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg", level: 45 },
-          { name: "NextJs",      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",           level: 60 }
+          { name: "HTML",       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",           level: 90 },
+          { name: "CSS",        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",             level: 85 },
+          { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", level: 75 },
+          { name: "React",      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",           level: 70 },
+          { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", level: 40 },
+          { name: "Java",       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",             level: 60 },
+          { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg", level: 45 },
+          { name: "NextJs",     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",         level: 60 },
         ],
       },
       {
         title: "Outils",
         icon: "Wrench",
         skills: [
-          { name: "Git/GitHub",   icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",      level: 80 },
+          { name: "Git/GitHub",  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",       level: 80 },
           { name: "TailwindCSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg", level: 75 },
           { name: "Figma",       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",          level: 50 },
           { name: "VS Code",     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",        level: 95 },
@@ -140,12 +138,20 @@ export const portfolioData = {
 
   contact: {
     title: "Contact",
+    sectionLabel: "// Contact",
+    emailCardLabel: "> send_message.sh",
+    emailCardTitle: "Envoyez-moi un email",
     emailText:
       "Disponible pour une alternance, un stage ou une collaboration. Écrivez-moi directement.",
+    emailButtonLabel: "Écrire un email",
+    emailAutoOpen: "Votre client email s'ouvrira automatiquement.",
+    coordLabel: "> whoami --contact",
+    coordTitle: "Mes coordonnées",
+    socialTitle: "Retrouvez-moi sur",
     socialLinks: [
-      { platform: "GitHub",   url: "https://github.com/Fenohasina08",                                                         icon: "Github" },
-      { platform: "LinkedIn", url: "https://www.linkedin.com/in/herimamy-fenohasina-ra-fanomezana-40370a386/",               icon: "Linkedin" },
-      { platform: "Facebook", url: "https://www.facebook.com/feno.hasi.na.55017",                                             icon: "Facebook" },
+      { platform: "GitHub",   url: "https://github.com/Fenohasina08",                                               icon: "Github"   },
+      { platform: "LinkedIn", url: "https://www.linkedin.com/in/herimamy-fenohasina-ra-fanomezana-40370a386/",     icon: "Linkedin" },
+      { platform: "Facebook", url: "https://www.facebook.com/feno.hasi.na.55017",                                   icon: "Facebook" },
     ],
   },
 
@@ -205,6 +211,62 @@ export const portfolioData = {
       url: "#",
     },
   ],
+
+  certifications_ui: {
+    sectionLabel: "// Certifications",
+    title: "Mes Certifications",
+    obtained: "obtenues",
+    inprogress: "en cours",
+    filters: [
+      { key: "all",        label: "Toutes"   },
+      { key: "obtained",   label: "Obtenues" },
+      { key: "inprogress", label: "En cours" },
+    ],
+    badgeObtained: "Obtenu",
+    badgeInprogress: "En cours",
+    verified: "✓ Vérifié",
+    eta: "ETA →",
+    see: "Voir",
+  },
+
+  about_ui: {
+    sectionLabel: "// À propos",
+  },
+
+  experience_ui: {
+    sectionLabel: "// Parcours",
+    title: "Mon Parcours",
+  },
+
+  projects_ui: {
+    sectionLabel: "// Projets",
+    title: "Mes Projets",
+    filters: [
+      { key: "all",        label: "Tous"      },
+      { key: "deployed",   label: "Déployés"  },
+      { key: "inprogress", label: "En cours"  },
+    ],
+    searchPlaceholder: "Rechercher...",
+    badgeDeployed: "Déployé",
+    badgeInprogress: "En cours",
+    seesite: "Voir le site",
+    deploying: "En cours de déploiement",
+  },
+
+  skills_ui: {
+    sectionLabel: "// Compétences",
+    title: "Mes Compétences",
+  },
+
+  hero_ui: {
+    available: "Disponible pour une alternance",
+    stats: [
+      { key: "projects",       label: "Projets"      },
+      { key: "technologies",   label: "Technos"      },
+      { key: "experiences",    label: "Expériences"  },
+      { key: "certifications", label: "Certifications" },
+    ],
+  },
 
   chatbot: {
     greeting:

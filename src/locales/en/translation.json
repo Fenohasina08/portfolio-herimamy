@@ -1,0 +1,33 @@
+{
+  "hero": {
+    "available": "Available — Work-study 2026",
+
+    "stats": {
+      "projects": "Projects",
+      "technologies": "Technologies",
+      "experiences": "Experience",
+      "certifications": "Certificates"
+    }
+  },
+
+  "personal": {
+    "role": "Web Developer",
+    "tagline": "Passionate about web development and modern technologies"
+  },
+
+  "xp": {
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "tools": "Tools",
+    "database": "Database"
+  },
+
+  "navbar": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "experience": "Experience",
+    "contact": "Contact"
+  }
+}
