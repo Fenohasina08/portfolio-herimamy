@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import Navbar      from './components/layout/Navbar';
-import Hero        from './components/sections/Hero';
-import About       from './components/sections/About';
-import Skills      from './components/sections/Skills';
-import Experience      from './components/sections/Experience';
-import Certifications  from './components/sections/Certifications';
-import Projects        from './components/sections/Projects';
-import Contact     from './components/sections/Contact';
-import Footer      from './components/layout/Footer';
-import Chatbot     from './components/common/Chatbot';
-import ScrollProgress from './components/common/ScrollProgress';
-import ScrollToTop from './components/common/ScrollToTop';
+import React, { useState, useEffect } from "react";
+import Navbar from "./components/layout/Navbar";
+import Hero from "./components/sections/Hero";
+import About from "./components/sections/About";
+import Skills from "./components/sections/Skills";
+import Experience from "./components/sections/Experience";
+import Certifications from "./components/sections/Certifications";
+import Projects from "./components/sections/Projects";
+import Contact from "./components/sections/Contact";
+import Footer from "./components/layout/Footer";
+import Chatbot from "./components/common/Chatbot";
+import ScrollProgress from "./components/common/ScrollProgress";
+import ScrollToTop from "./components/common/ScrollToTop";
 
 function App() {
   const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
-    document.documentElement.classList.toggle('dark', isDark);
+    document.documentElement.classList.toggle("dark", isDark);
   }, [isDark]);
 
   return (

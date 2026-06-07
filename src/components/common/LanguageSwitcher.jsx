@@ -23,7 +23,6 @@ const LanguageSwitcher = () => {
       >
         FR
       </button>
-
       <button
         onClick={() => changeLanguage("en")}
         style={{
