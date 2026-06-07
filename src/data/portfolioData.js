@@ -2,8 +2,8 @@ export const portfolioData = {
   personal: {
     name: "Herimamy Fenohasina",
     shortName: "Herimamy",
-    role: "Développeur Web",
-    tagline: "Passionné par le développement web et la création de solutions modernes.",
+    role: "personal.role",
+    tagline: "personal.tagline",
     location: "Antananarivo, Madagascar",
     email: "fenohasinaherimamy@gmail.com",
     phone: "+261 32 87 023 38",
@@ -19,10 +19,10 @@ export const portfolioData = {
   },
 
   xpBars: [
-    { label: "Frontend XP",   value: 80 },
-    { label: "React/TS XP",   value: 65 },
-    { label: "Backend XP",    value: 45 },
-    { label: "UI/UX XP",      value: 60 },
+    { label: "xp.frontend",   value: 80 },
+    { label: "xp.react",   value: 65 },
+    { label: "xp.backend",    value: 45 },
+    { label: "xp.uiux",      value: 60 },
   ],
 
   about: {
