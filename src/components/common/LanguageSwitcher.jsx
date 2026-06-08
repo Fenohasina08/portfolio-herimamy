@@ -14,16 +14,15 @@ const LanguageSwitcher = () => {
     <div
       onClick={changeLanguage}
       style={{
-        width: "140px",
+        width: "120px",
         height: "50px",
-        background: "var(--accent)",
-        borderRadius: "999px",
+        borderRadius: "909px",
         position: "relative",
         cursor: "pointer",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        padding: "0 18px",
+        padding: "0 12px",
         userSelect: "none",
         boxShadow: "0 8px 20px rgba(0,0,0,.15)",
       }}
@@ -31,7 +30,7 @@ const LanguageSwitcher = () => {
       {/* Drapeau FR */}
       <span
         style={{
-          fontSize: "24px",
+          fontSize: "20px",
           opacity: isFrench ? 1 : 0.6,
           transition: "0.3s",
           zIndex: 2,
@@ -43,7 +42,7 @@ const LanguageSwitcher = () => {
       {/* Drapeau EN */}
       <span
         style={{
-          fontSize: "24px",
+          fontSize: "20px",
           opacity: !isFrench ? 1 : 0.6,
           transition: "0.3s",
           zIndex: 2,
@@ -57,7 +56,7 @@ const LanguageSwitcher = () => {
         style={{
           position: "absolute",
           width: "42px",
-          height: "24px",
+          height: "20px",
           background: "#8d0025",
           borderRadius: "999px",
           left: "50%",
