@@ -39,7 +39,7 @@ const Navbar = ({ isDark, toggleTheme }) => {
     { label: t("navbar.experience"), href: "#experience" },
     { label: t("navbar.certifications"), href: "#certifications" },
     { label: t("navbar.contact"), href: "#contact" },
-  ];
+   ];
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled ? "bg-[var(--bg-2)]/90 backdrop-blur-md border-b border-[var(--border)]" : "bg-transparent"}`} role="navigation" aria-label="Navigation principale">
