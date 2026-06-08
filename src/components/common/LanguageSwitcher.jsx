@@ -4,38 +4,83 @@ import { useTranslation } from "react-i18next";
 const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
 
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
+  const isFrench = i18n.language === "fr";
+
+  const changeLanguage = () => {
+    i18n.changeLanguage(isFrench ? "en" : "fr");
   };
 
   return (
-    <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
-      <button
-        onClick={() => changeLanguage("fr")}
+    <div
+      onClick={changeLanguage}
+      style={{
+        width: "140px",
+        height: "50px",
+        background: "var(--accent)",
+        borderRadius: "999px",
+        position: "relative",
+        cursor: "pointer",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "0 18px",
+        userSelect: "none",
+        boxShadow: "0 8px 20px rgba(0,0,0,.15)",
+      }}
+    >
+      {/* Drapeau FR */}
+      <span
         style={{
-          padding: "6px 10px",
-          cursor: "pointer",
-          borderRadius: "6px",
-          border: "1px solid var(--accent)",
-          background: i18n.language === "fr" ? "var(--accent)" : "transparent",
-          color: i18n.language === "fr" ? "#fff" : "var(--text)",
+          fontSize: "24px",
+          opacity: isFrench ? 1 : 0.6,
+          transition: "0.3s",
+          zIndex: 2,
         }}
       >
-        FR
-      </button>
-      <button
-        onClick={() => changeLanguage("en")}
+        🇫🇷
+      </span>
+
+      {/* Drapeau EN */}
+      <span
         style={{
-          padding: "6px 10px",
-          cursor: "pointer",
-          borderRadius: "6px",
-          border: "1px solid var(--accent)",
-          background: i18n.language === "en" ? "var(--accent)" : "transparent",
-          color: i18n.language === "en" ? "#fff" : "var(--text)",
+          fontSize: "24px",
+          opacity: !isFrench ? 1 : 0.6,
+          transition: "0.3s",
+          zIndex: 2,
         }}
       >
-        EN
-      </button>
+        🇬🇧
+      </span>
+
+      {/* Petit switch central */}
+      <div
+        style={{
+          position: "absolute",
+          width: "42px",
+          height: "24px",
+          background: "#8d0025",
+          borderRadius: "999px",
+          left: "50%",
+          top: "50%",
+          transform: "translate(-50%, -50%)",
+          display: "flex",
+          alignItems: "center",
+          padding: "3px",
+        }}
+      >
+        <div
+          style={{
+            width: "18px",
+            height: "18px",
+            background: "#fff",
+            borderRadius: "50%",
+            transform: isFrench
+              ? "translateX(0)"
+              : "translateX(18px)",
+            transition: "transform .3s ease",
+          }}
+        />
+      </div>
     </div>
   );
 };
