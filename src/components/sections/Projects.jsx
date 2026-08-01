@@ -37,8 +37,16 @@ const Projects = () => {
             <AnimateOnScroll key={project.id} direction="up" delay={150 + index * 80}>
               <div className="flex flex-col overflow-hidden card-terminal group">
                 <div className="relative h-40 overflow-hidden">
-                  <img src={project.image} alt={project.title} className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-[var(--bg)]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+<img
+  src={project.image}
+  alt={`Capture d'écran du projet ${project.title}, réalisé avec ${project.stack.join(", ")}`}
+  title={project.title}
+  width="400"
+  height="160"
+  loading="lazy"
+  decoding="async"
+  className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+/>                  <div className="absolute inset-0 bg-[var(--bg)]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                     {project.deployed ? (<a href={project.demoLink} target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-full transition-colors" style={{ background: "var(--accent)", color: "var(--bg)" }} title={ui.seesite}><ExternalLink className="w-4 h-4" /></a>) : (<div className="p-2.5 rounded-full cursor-not-allowed" style={{ background: "var(--bg-4)", color: "var(--muted)" }}><Clock className="w-4 h-4" /></div>)}
                   </div>
                   <div className="absolute top-3 right-3">{project.deployed ? (<span className="flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium" style={{ background: "var(--green-dim)", color: "var(--green)", border: "0.5px solid rgba(74,222,128,0.3)", fontFamily: "var(--font-mono)" }}><CheckCircle className="w-3 h-3" /> {ui.badgeDeployed}</span>) : (<span className="flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium" style={{ background: "var(--amber-dim)", color: "var(--amber)", border: "0.5px solid rgba(251,191,36,0.3)", fontFamily: "var(--font-mono)" }}><Clock className="w-3 h-3" /> {ui.badgeInprogress}</span>)}</div>

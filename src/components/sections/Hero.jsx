@@ -38,9 +38,10 @@ const Hero = () => {
                 {data.hero_ui.available}
               </span>
             </div>
-            <h1 className="mb-2 font-bold leading-tight" style={{ color: "var(--title)", fontSize: "clamp(2rem, 5vw, 3.5rem)" }}>
+           <h1 className="mb-2 font-bold leading-tight" style={{ color: "var(--title)", fontSize: "clamp(2rem, 5vw, 3.5rem)" }}>
               RA-FANOMEZANA<br />
               <span style={{ color: "var(--accent)" }}>Herimamy</span>
+              <span className="sr-only"> — Développeur Full Stack Web basé à Antananarivo, Madagascar, spécialisé React, JavaScript et Java Spring Boot</span>
             </h1>
             <p className="mb-6 text-lg font-medium" style={{ color: "var(--body)" }}>{data.personal.role}</p>
             <p className="max-w-lg mb-8 text-sm" style={{ color: "var(--body)" }}>{data.personal.tagline}</p>

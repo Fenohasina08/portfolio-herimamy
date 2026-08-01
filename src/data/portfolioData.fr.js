@@ -251,4 +251,9 @@ export const portfolioDataFr = {
     welcomeButtons: ["Mes projets", "Mes compétences", "Mon parcours", "À propos", "Contact", "Télécharger CV"],
     openingDelay: 3500,
   },
+
+  "seo": {
+  "title": "Herimamy Fenohasina RA-FANOMEZANA — Développeur Full Stack Web | Madagascar",
+  "description": "Herimamy Fenohasina, étudiant en informatique à HEI Ivandry (Madagascar), développeur web full stack (React, JavaScript, Java Spring Boot). À la recherche d'une alternance en développement web pour 2026."
+}
 };
