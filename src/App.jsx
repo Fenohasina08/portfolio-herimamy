@@ -11,6 +11,7 @@ import Footer from "./components/layout/Footer";
 import Chatbot from "./components/common/Chatbot";
 import ScrollProgress from "./components/common/ScrollProgress";
 import ScrollToTop from "./components/common/ScrollToTop";
+import SEO from "./components/common/SEO";
 
 function App() {
   const [isDark, setIsDark] = useState(true);
@@ -21,6 +22,7 @@ function App() {
 
   return (
     <div className="min-h-screen transition-colors duration-500">
+      <SEO />
       <ScrollProgress />
       <Navbar isDark={isDark} toggleTheme={() => setIsDark(!isDark)} />
       <main>

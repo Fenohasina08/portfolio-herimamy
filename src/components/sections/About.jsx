@@ -24,7 +24,15 @@ const About = () => {
               <div className="relative">
                 <div className="absolute -inset-2 rounded-2xl opacity-20" style={{ background: "linear-gradient(135deg, var(--accent), var(--accent2))", filter: "blur(8px)" }} />
                 <div className="relative w-64 h-64 overflow-hidden rounded-2xl" style={{ border: "1px solid var(--border-hover)" }}>
-                  <img src={data.about.image} alt={data.personal.name} className="object-cover w-full h-full" onError={(e) => { e.target.style.display = "none"; const el = e.target.parentElement; el.style.display = "flex"; el.style.alignItems = "center"; el.style.justifyContent = "center"; el.style.background = "var(--bg-3)"; el.innerHTML = '<span style=\"font-family:var(--font-mono);font-size:4rem;font-weight:700;color:var(--accent)\">H</span>'; }} />
+                  <img
+                      src={data.about.image}
+                      alt={`${data.personal.name}, développeur full stack basé à Madagascar`}
+                      width="256"
+                      height="256"
+                      loading="lazy"
+                      decoding="async"
+                      className="object-cover w-full h-full"
+                      onError={(e) => { e.target.style.display = "none"; const el = e.target.parentElement; el.style.display = "flex"; el.style.alignItems = "center"; el.style.justifyContent = "center"; el.style.background = "var(--bg-3)"; el.innerHTML = '<span style=\"font-family:var(--font-mono);font-size:4rem;font-weight:700;color:var(--accent)\">H</span>'; }} />
                 </div>
                 <div className="absolute bottom-3 right-3"><span className="badge-running">Online</span></div>
               </div>

@@ -10,8 +10,16 @@ const SkillCard = ({ skill, index }) => {
       <div ref={ref} className="p-4 card-terminal group">
         <div className="flex items-center gap-3 mb-3">
           <div className="flex items-center justify-center flex-shrink-0 w-8 h-8 overflow-hidden rounded-md" style={{ background: "var(--bg-3)" }}>
-            <img src={skill.icon} alt={skill.name} className="object-contain w-5 h-5" onError={(e) => { e.target.style.display = "none"; }} />
-          </div>
+<img
+  src={skill.icon}
+  alt={`Icône ${skill.name}`}
+  width="20"
+  height="20"
+  loading="lazy"
+  decoding="async"
+  className="object-contain w-5 h-5"
+  onError={(e) => { e.target.style.display = "none"; }}
+/>          </div>
           <span className="text-sm font-medium" style={{ color: "var(--title)" }}>{skill.name}</span>
           <span className="ml-auto text-xs" style={{ color: "var(--accent)", fontFamily: "var(--font-mono)" }}>{skill.level}%</span>
         </div>

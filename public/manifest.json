@@ -1,8 +1,21 @@
 {
-  "short_name": "Herimamy",
-  "name": "Herimamy Portfolio",
+  "short_name": "Herimamy Fenohasina",
+  "name": "Herimamy Fenohasina — Développeur Full Stack Web",
+  "description": "Portfolio de Herimamy Fenohasina, développeur full stack basé à Madagascar (React, JavaScript, Java Spring Boot).",
+  "icons": [
+    {
+      "src": "HF_removebg.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "HF_Logo.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#000000"
 }

@@ -249,4 +249,9 @@ export const portfolioDataEn = {
     welcomeButtons: ["My projects", "My skills", "My journey", "About", "Contact", "Download CV"],
     openingDelay: 3500,
   },
+
+  "seo": {
+  "title": "Herimamy Fenohasina RA-FANOMEZANA — Full Stack Web Developer | Madagascar",
+  "description": "Herimamy Fenohasina, computer science student at HEI Ivandry (Madagascar), full stack web developer (React, JavaScript, Java Spring Boot). Looking for a work-study placement in web development for 2026."
+}
 };
