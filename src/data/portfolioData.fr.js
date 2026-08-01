@@ -176,7 +176,15 @@ export const portfolioDataFr = {
       tags: ["JavaScript  ", "HTML", "CSS" , "Algorithmique", "Git", "GitHub", "Gestion de projet"],
       url: "#",
     },
-     
+     { 
+    id: "cert-3",
+    title: "Advanced Dart",
+    issuer: "Nextflutter",
+    date: "July 2026",
+    status: "obtained",
+    tags: ["Dart", "Flutter", "Mobile Development"],
+    url: "https://nextflutter.com/certifications/verify/NF-2026-0558CA49",
+  }
     
   ],
 
