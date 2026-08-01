@@ -24,7 +24,7 @@ const Navbar = ({ isDark, toggleTheme }) => {
 
   const handleDownloadCV = () => {
     const link = document.createElement("a");
-    link.href = "/Herimamy.pdf";
+    link.href = "/CV_Dev_Fullstak_RAFANOMEZANA.pdf";
     link.download = `CV_Herimamy_Fenohasina_${new Date().getFullYear()}.pdf`;
     document.body.appendChild(link);
     link.click();
