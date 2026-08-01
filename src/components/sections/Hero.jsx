@@ -61,7 +61,7 @@ const Hero = () => {
           </div>
           <div className="lg:col-span-2">
             <div className="p-5 card-terminal">
-              <img src={data.about.image} alt={data.personal.name} className="w-12 h-12 mb-4 rounded-full" />
+              {/* <img src={data.about.image} alt={data.personal.name} className="w-12 h-12 mb-4 rounded-full" /> */}
               <div className="space-y-3">
                 {data.xpBars.map(({ label, value }) => (
                   <div key={label}>
