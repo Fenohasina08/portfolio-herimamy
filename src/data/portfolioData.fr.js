@@ -181,7 +181,7 @@ export const portfolioDataFr = {
     title: "Advanced Dart",
     issuer: "Nextflutter",
     date: "July 2026",
-    status: "done",
+    status: "obtained",
     tags: ["Dart", "Flutter", "Mobile Development"],
     url: "https://nextflutter.com/certifications/verify/NF-2026-0558CA49",
   }
