@@ -76,9 +76,9 @@ export const portfolioDataEn = {
         "Secure REST API built with Spring Boot featuring JWT authentication and role-based access control (RBAC). Docker containerization and CI/CD pipeline via GitHub Actions. Generation and download of booking tickets.",
       stack: ["Java", "Spring Boot", "Docker", "GitHub Actions", "JWT"],
       image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&q=80",
-      deployed: true,
+      deployed: false,
       demoLink: "#",
-      status: "deployed",
+      status: "inprogress",
       version: "v1.0",
     },
     {

@@ -76,9 +76,9 @@ export const portfolioDataFr = {
         "API REST sécurisée en Spring Boot avec authentification JWT et gestion des rôles (RBAC). Conteneurisation Docker et pipeline CI/CD via GitHub Actions. Génération et téléchargement de billets de réservation.",
       stack: ["Java", "Spring Boot", "Docker", "GitHub Actions", "JWT"],
       image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&q=80",
-      deployed: true,
+      deployed: false,
       demoLink: "#",
-      status: "deployed",
+      status: "inprogress",
       version: "v1.0",
     },
     {
