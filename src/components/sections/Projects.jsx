@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ExternalLink, Clock, CheckCircle } from "lucide-react";
+import { ExternalLink, Clock, CheckCircle, Github } from "lucide-react";
 import usePortfolioData from "../../hooks/usePortfolioData";
 import AnimateOnScroll from "../common/AnimateOnScroll";
 
@@ -33,7 +33,9 @@ const Projects = () => {
           </div>
         </AnimateOnScroll>
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {filtered.map((project, index) => (
+          {filtered.map((project, index) => {
+            const hasGithub = project.githubLink && project.githubLink !== "#";
+            return (
             <AnimateOnScroll key={project.id} direction="up" delay={150 + index * 80}>
               <div className="flex flex-col overflow-hidden card-terminal group">
                 <div className="relative h-40 overflow-hidden">
@@ -46,8 +48,9 @@ const Projects = () => {
   loading="lazy"
   decoding="async"
   className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
-/>                  <div className="absolute inset-0 bg-[var(--bg)]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+/>                  <div className="absolute inset-0 bg-[var(--bg)]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
                     {project.deployed ? (<a href={project.demoLink} target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-full transition-colors" style={{ background: "var(--accent)", color: "var(--bg)" }} title={ui.seesite}><ExternalLink className="w-4 h-4" /></a>) : (<div className="p-2.5 rounded-full cursor-not-allowed" style={{ background: "var(--bg-4)", color: "var(--muted)" }}><Clock className="w-4 h-4" /></div>)}
+                    {hasGithub && (<a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-full transition-colors" style={{ background: "var(--bg-4)", color: "var(--title)" }} title={ui.seecode || "Voir le code"}><Github className="w-4 h-4" /></a>)}
                   </div>
                   <div className="absolute top-3 right-3">{project.deployed ? (<span className="flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium" style={{ background: "var(--green-dim)", color: "var(--green)", border: "0.5px solid rgba(74,222,128,0.3)", fontFamily: "var(--font-mono)" }}><CheckCircle className="w-3 h-3" /> {ui.badgeDeployed}</span>) : (<span className="flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium" style={{ background: "var(--amber-dim)", color: "var(--amber)", border: "0.5px solid rgba(251,191,36,0.3)", fontFamily: "var(--font-mono)" }}><Clock className="w-3 h-3" /> {ui.badgeInprogress}</span>)}</div>
                   <div className="absolute bottom-2 left-3"><span className="text-xs" style={{ color: "var(--muted)", fontFamily: "var(--font-mono)" }}>{project.version}</span></div>
@@ -56,11 +59,21 @@ const Projects = () => {
                   <h3 className="mb-2 text-sm font-semibold" style={{ color: "var(--title)" }}>{project.title}</h3>
                   <p className="flex-1 mb-4 text-xs leading-relaxed" style={{ color: "var(--body)" }}>{project.description}</p>
                   <div className="flex flex-wrap gap-1.5 mb-4">{project.stack.map((tech) => (<span key={tech} className="skill-tag">{tech}</span>))}</div>
-                  {project.deployed ? (<a href={project.demoLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 py-2 text-xs font-medium transition-all rounded-lg" style={{ background: "var(--accent-dim)", color: "var(--accent)", border: "0.5px solid rgba(56,189,248,0.2)", fontFamily: "var(--font-mono)" }}><ExternalLink className="w-3 h-3" /> {ui.seesite}</a>) : (<div className="flex items-center justify-center gap-2 py-2 text-xs font-medium rounded-lg cursor-not-allowed" style={{ background: "var(--bg-3)", color: "var(--muted)", fontFamily: "var(--font-mono)" }}><Clock className="w-3 h-3" /> {ui.deploying}</div>)}
+                  <div className="flex gap-2">
+                    {project.deployed ? (
+                      <a href={project.demoLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center flex-1 gap-2 py-2 text-xs font-medium transition-all rounded-lg" style={{ background: "var(--accent-dim)", color: "var(--accent)", border: "0.5px solid rgba(56,189,248,0.2)", fontFamily: "var(--font-mono)" }}><ExternalLink className="w-3 h-3" /> {ui.seesite}</a>
+                    ) : (
+                      <div className="flex items-center justify-center flex-1 gap-2 py-2 text-xs font-medium rounded-lg cursor-not-allowed" style={{ background: "var(--bg-3)", color: "var(--muted)", fontFamily: "var(--font-mono)" }}><Clock className="w-3 h-3" /> {ui.deploying}</div>
+                    )}
+                    {hasGithub && (
+                      <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center flex-1 gap-2 py-2 text-xs font-medium transition-all rounded-lg" style={{ background: "var(--bg-3)", color: "var(--title)", border: "0.5px solid var(--border)", fontFamily: "var(--font-mono)" }}><Github className="w-3 h-3" /> {ui.seecode || "Voir le code"}</a>
+                    )}
+                  </div>
                 </div>
               </div>
             </AnimateOnScroll>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

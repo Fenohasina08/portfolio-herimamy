@@ -24,13 +24,13 @@ export const portfolioDataEn = {
   ],
 
   about: {
-    title: "About Me",
+    title: "About me",
     description:
-      "2nd-year Computer Science student at Haute École de l'Informatique (HEI) Ivandry, I design full-featured web applications: React, Next.js, and TypeScript interfaces on the frontend, secure Java Spring Boot and PostgreSQL APIs on the backend, with Docker and CI/CD for deployment. My approach: iterate quickly, learn by doing, and deliver concrete results.",
+      "2nd-year Computer Science student at the Haute École de l'Informatique d'Ivandry, I design full-featured web applications: React, Next.js, and TypeScript interfaces on the frontend, secure Java Spring Boot and PostgreSQL APIs on the backend, with Docker and CI/CD for deployment. My approach: iterate quickly, learn by doing, and deliver concrete results.",
     qualities: [
-      { label: "Curiosity",   icon: "Search",   desc: "Always keeping up-to-date with new technologies" },
-      { label: "Autonomy",    icon: "Terminal", desc: "Ability to work independently on a project" },
-      { label: "Teamwork",    icon: "Users",    desc: "Active collaboration on shared projects" },
+      { label: "Curiosity",        icon: "Search",   desc: "Always on the lookout for new technologies" },
+      { label: "Autonomy",         icon: "Terminal", desc: "Ability to move forward independently on a project" },
+      { label: "Teamwork",         icon: "Users",    desc: "Active collaboration on shared projects" },
     ],
     image: "/feno.png",
   },
@@ -42,7 +42,7 @@ export const portfolioDataEn = {
       company: "MNDPT — Ministry of Digital Development, Postal Services and Telecommunications",
       period: "Oct 2024",
       description:
-        "Recreation of the ministry's institutional showcase website using HTML, CSS, and JavaScript. Web integration and page structuring in a real institutional environment. Introduction to the processes and operations of an IT department.",
+        "Reproduction of the ministry's institutional showcase website using HTML, CSS, and JavaScript. Web integration and page structuring in a real institutional environment. Introduction to the processes and operations of an IT department.",
       type: "internship",
       tags: ["HTML", "CSS", "JavaScript"],
     },
@@ -52,7 +52,7 @@ export const portfolioDataEn = {
       company: "ONG Passerelles Numériques Madagasikara",
       period: "Jan 2024 – Nov 2024",
       description:
-        "Development of web projects using HTML, CSS, and JavaScript. Participation in project management and the design of functional user interfaces.",
+        "Development of web projects using HTML, CSS, and JavaScript. Participation in project management and design of functional user interfaces.",
       type: "internship",
       tags: ["HTML", "CSS", "JavaScript"],
     },
@@ -62,7 +62,7 @@ export const portfolioDataEn = {
       company: "Haute École de l'Informatique d'Ivandry",
       period: "Nov 2024 – Present",
       description:
-        "Training in software development, data structures, algorithms, and full stack web development. In-depth projects in Spring Boot (secure APIs, testing, CI/CD) and multi-service architectures (Next.js, Express, React Admin).",
+        "Training in software development, data structures, algorithms, and full stack web development. In-depth projects in Spring Boot (secure APIs, tests, CI/CD) and multi-service architectures (Next.js, Express, React Admin).",
       type: "education",
       tags: ["Algorithms", "Java", "Spring Boot", "React"],
     },
@@ -78,6 +78,7 @@ export const portfolioDataEn = {
       image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&q=80",
       deployed: false,
       demoLink: "#",
+      githubLink: "https://github.com/DavFilsDev/cine-app.git",
       status: "inprogress",
       version: "v1.0",
     },
@@ -97,7 +98,7 @@ export const portfolioDataEn = {
       id: "proj-3",
       title: "exodocker — Tested and Monitored API",
       description:
-        "Spring Boot API featuring Testcontainers integration tests, production error monitoring via Sentry, and Docker deployment with a complete CI/CD pipeline via GitHub Actions.",
+        "Spring Boot API with Testcontainers integration tests, production error monitoring via Sentry, and Docker deployment with a complete CI/CD pipeline via GitHub Actions.",
       stack: ["Spring Boot", "Docker", "Testcontainers", "Sentry"],
       image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
       deployed: true,
@@ -161,7 +162,7 @@ export const portfolioDataEn = {
     emailButtonLabel: "Send an email",
     emailAutoOpen: "Your email client will open automatically.",
     coordLabel: "> whoami --contact",
-    coordTitle: "My contact info",
+    coordTitle: "My contact details",
     socialTitle: "Find me on",
     socialLinks: [
       { platform: "GitHub",   url: "https://github.com/Fenohasina08",                                               icon: "Github"   },
@@ -215,8 +216,8 @@ export const portfolioDataEn = {
     obtained: "obtained",
     inprogress: "in progress",
     filters: [
-      { key: "all",        label: "All"        },
-      { key: "obtained",   label: "Obtained"   },
+      { key: "all",        label: "All"      },
+      { key: "obtained",   label: "Obtained" },
       { key: "inprogress", label: "In progress" },
     ],
     badgeObtained: "Obtained",

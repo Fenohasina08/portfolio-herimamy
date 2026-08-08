@@ -78,6 +78,7 @@ export const portfolioDataFr = {
       image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&q=80",
       deployed: false,
       demoLink: "#",
+      githubLink: "https://github.com/DavFilsDev/cine-app.git",
       status: "inprogress",
       version: "v1.0",
     },
