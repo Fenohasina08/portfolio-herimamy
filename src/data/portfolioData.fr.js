@@ -2,8 +2,8 @@ export const portfolioDataFr = {
   personal: {
     name: "Herimamy Fenohasina",
     shortName: "Herimamy",
-    role: "Développeur Web",
-    tagline: "Étudiant en informatique passionné par le développement web moderne. Je construis des interfaces rapides, propres et accessibles.",
+    role: "Développeur Web Full Stack",
+    tagline: "Étudiant en informatique, développeur full stack. Je construis des interfaces rapides et propres en React/Next.js, connectées à des API robustes en Java Spring Boot.",
     location: "Antananarivo, Madagascar",
     email: "fenohasinaherimamy@gmail.com",
     phone: "+261 32 87 023 38",
@@ -18,15 +18,15 @@ export const portfolioDataFr = {
 
   xpBars: [
     { label: "Frontend",  value: 80 },
-    { label: "React",     value: 65 },
-    { label: "Backend",   value: 45 },
-    { label: "UI / UX",   value: 60 },
+    { label: "React / Next.js", value: 70 },
+    { label: "Backend (Spring Boot)", value: 65 },
+    { label: "DevOps (Docker / CI-CD)", value: 55 },
   ],
 
   about: {
     title: "À propos de moi",
     description:
-      "Étudiant en 2ème année Informatique à la Haute École de l'Informatique d'Ivandry, je construis des interfaces web modernes avec React, TypeScript et TailwindCSS. Mon approche : itérer vite, apprendre en faisant, livrer du concret.",
+      "Étudiant en 2ème année Informatique à la Haute École de l'Informatique d'Ivandry, je conçois des applications web complètes : interfaces en React, Next.js et TypeScript côté frontend, API sécurisées en Java Spring Boot et PostgreSQL côté backend, avec Docker et CI/CD pour le déploiement. Mon approche : itérer vite, apprendre en faisant, livrer du concret.",
     qualities: [
       { label: "Curiosité",        icon: "Search",   desc: "Toujours en veille sur les nouvelles technos" },
       { label: "Autonomie",        icon: "Terminal", desc: "Capacité à avancer seul sur un projet" },
@@ -38,11 +38,11 @@ export const portfolioDataFr = {
   experiences: [
     {
       id: "exp-1",
-      title: "Stage — Direction des Systèmes d'Information",
-      company: "DSI Madagascar",
-      period: "2024",
+      title: "Stage Développeur Web",
+      company: "MNDPT — Ministère du Numérique, du Développement Postal et des Télécommunications",
+      period: "Oct 2024",
       description:
-        "Développement de pages web internes en HTML, CSS et JavaScript. Contribution à l'amélioration des interfaces utilisateur des outils internes.",
+        "Reproduction du site vitrine institutionnel du ministère en HTML, CSS et JavaScript. Intégration web et structuration de pages dans un environnement institutionnel réel. Initiation aux processus et au fonctionnement d'un service informatique.",
       type: "stage",
       tags: ["HTML", "CSS", "JavaScript"],
     },
@@ -50,7 +50,7 @@ export const portfolioDataFr = {
       id: "exp-2",
       title: "Année Préparatoire Informatique",
       company: "ONG Passerelles Numériques Madagasikara",
-      period: "2024",
+      period: "Jan 2024 – Nov 2024",
       description:
         "Développement de projets web en HTML, CSS et JavaScript. Participation à la gestion de projet et à la conception d'interfaces utilisateur fonctionnelles.",
       type: "stage",
@@ -60,50 +60,50 @@ export const portfolioDataFr = {
       id: "exp-3",
       title: "2ème année Informatique",
       company: "Haute École de l'Informatique d'Ivandry",
-      period: "2024 – 2025",
+      period: "Nov 2024 – Présent",
       description:
-        "Formation en développement logiciel, structures de données, algorithmique et développement web. Projets collaboratifs dont une app de gestion des dépenses scolaires.",
+        "Formation en développement logiciel, structures de données, algorithmique et développement web full stack. Projets approfondis en Spring Boot (API sécurisées, tests, CI/CD) et en architectures multi-services (Next.js, Express, React Admin).",
       type: "formation",
-      tags: ["Algorithmique", "Java", "Web", "React"],
+      tags: ["Algorithmique", "Java", "Spring Boot", "React"],
     },
   ],
 
   projects: [
     {
       id: "proj-1",
-      title: "Site restaurant sushi",
+      title: "cine-app — Réservation de cinéma",
       description:
-        "Interface moderne pour un restaurant sushi avec menu interactif, galerie et système de commande en ligne.",
-      stack: ["React", "TailwindCSS", "JavaScript"],
-      image: "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=800&q=80",
-      deployed: false,
+        "API REST sécurisée en Spring Boot avec authentification JWT et gestion des rôles (RBAC). Conteneurisation Docker et pipeline CI/CD via GitHub Actions. Génération et téléchargement de billets de réservation.",
+      stack: ["Java", "Spring Boot", "Docker", "GitHub Actions", "JWT"],
+      image: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&q=80",
+      deployed: true,
       demoLink: "#",
-      status: "inprogress",
-      version: "v0.8",
+      status: "deployed",
+      version: "v1.0",
     },
     {
       id: "proj-2",
-      title: "Test de dactylographie",
+      title: "EventSync 2026 — Gestion d'événements",
       description:
-        "App de mesure de vitesse de frappe (WPM) avec niveaux de difficulté, statistiques détaillées et classement.",
-      stack: ["JavaScript", "HTML", "CSS"],
-      image: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=800&q=80",
-      deployed: true,
-      demoLink: "https://hikeyboardgame.netlify.app/",
-      status: "deployed",
-      version: "v1.2",
+        "Plateforme multi-services : backend Express/Prisma avec PostgreSQL (Neon), frontend public en Next.js avec recherche et filtres dynamiques, back-office React Admin pour la gestion des salles et intervenants (CRUD complet).",
+      stack: ["Next.js", "Express", "Prisma", "PostgreSQL", "React Admin"],
+      image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80",
+      deployed: false,
+      demoLink: "#",
+      status: "inprogress",
+      version: "v0.9",
     },
     {
       id: "proj-3",
-      title: "Portfolio Geek'sopap",
+      title: "exodocker — API testée et monitorée",
       description:
-        "Plateforme de ressources numériques pour la communauté geek — partage et curation de contenu avec système de tags.",
-      stack: ["React", "TypeScript", "TailwindCSS"],
-      image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&q=80",
+        "API Spring Boot avec tests d'intégration Testcontainers, supervision des erreurs en production via Sentry, et déploiement Docker avec pipeline CI/CD complet via GitHub Actions.",
+      stack: ["Spring Boot", "Docker", "Testcontainers", "Sentry"],
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
       deployed: true,
-      demoLink: "https://sopatek-madagascar.vercel.app/",
+      demoLink: "#",
       status: "deployed",
-      version: "v2.0",
+      version: "v1.0",
     },
   ],
 
@@ -116,12 +116,25 @@ export const portfolioDataFr = {
           { name: "HTML",       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",           level: 90 },
           { name: "CSS",        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",             level: 85 },
           { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", level: 75 },
+          { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", level: 50 },
           { name: "React",      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",           level: 70 },
-          { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", level: 40 },
-          { name: "Java",       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",             level: 60 },
-          { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg", level: 45 },
-          { name: "NextJs",     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",         level: 60 },
-          { name : "Dart",       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg",             level: 50 },
+          { name: "NextJs",     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",         level: 65 },
+          { name: "Java",       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",             level: 65 },
+          { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg", level: 55 },
+          { name: "Dart",       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg",             level: 50 },
+          { name: "Python",     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",         level: 25 },
+        ],
+      },
+      {
+        title: "Backend & DevOps",
+        icon: "Server",
+        skills: [
+          { name: "Spring Boot",    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg",             level: 65 },
+          { name: "Node.js",        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",             level: 60 },
+          { name: "Express",        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",           level: 60 },
+          { name: "Docker",         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",             level: 60 },
+          { name: "GitHub Actions", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/githubactions/githubactions-original.svg", level: 55 },
+          { name: "AWS",            icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg", level: 45 },
         ],
       },
       {
@@ -133,7 +146,6 @@ export const portfolioDataFr = {
           { name: "Figma",       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",          level: 50 },
           { name: "VS Code",     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",        level: 95 },
           { name: "IntelliJ",    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg",    level: 70 },
-
         ],
       },
     ],
@@ -165,7 +177,7 @@ export const portfolioDataFr = {
       issuer: "Orange Digital Center Madagascar",
       date: "2025",
       status: "obtained",
-      tags: ["HTML", "CSS" , "JS", "Python"],
+      tags: ["HTML", "CSS", "JS", "Python"],
       url: "#",
     },
     {
@@ -174,19 +186,27 @@ export const portfolioDataFr = {
       issuer: "ONG Passerelles Numériques Madagasikara",
       date: "2024",
       status: "obtained",
-      tags: ["JavaScript  ", "HTML", "CSS" , "Algorithmique", "Git", "GitHub", "Gestion de projet"],
+      tags: ["JavaScript", "HTML", "CSS", "Algorithmique", "Git", "GitHub", "Gestion de projet"],
       url: "#",
     },
-     { 
-    id: "cert-3",
-    title: "Advanced Dart",
-    issuer: "Nextflutter",
-    date: "July 2026",
-    status: "obtained",
-    tags: ["Dart", "Flutter", "Mobile Development"],
-    url: "https://nextflutter.com/certifications/verify/NF-2026-0558CA49",
-  }
-    
+    {
+      id: "cert-3",
+      title: "Advanced Dart",
+      issuer: "Nextflutter",
+      date: "July 2026",
+      status: "obtained",
+      tags: ["Dart", "Flutter", "Mobile Development"],
+      url: "https://nextflutter.com/certifications/verify/NF-2026-0558CA49",
+    },
+    {
+      id: "cert-4",
+      title: "FlutterFire Summer Camp — Cohort 2026",
+      issuer: "FlutterFire",
+      date: "2026",
+      status: "inprogress",
+      tags: ["Flutter", "Dart", "Firebase", "Mobile"],
+      url: "#",
+    },
   ],
 
   certifications_ui: {
@@ -254,6 +274,6 @@ export const portfolioDataFr = {
 
   "seo": {
   "title": "Herimamy Fenohasina RA-FANOMEZANA — Développeur Full Stack Web | Madagascar",
-  "description": "Herimamy Fenohasina, étudiant en informatique à HEI Ivandry (Madagascar), développeur web full stack (React, JavaScript, Java Spring Boot). À la recherche d'une alternance en développement web pour 2026."
+  "description": "Herimamy Fenohasina, étudiant en informatique à HEI Ivandry (Madagascar), développeur web full stack (React, Next.js, Java Spring Boot, Docker, CI/CD). À la recherche d'une alternance en développement web pour 2026."
 }
 };
